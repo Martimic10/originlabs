@@ -27,6 +27,16 @@ export const metadata: Metadata = {
     "MVP development",
     "mobile apps",
   ],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   openGraph: {
     title: "Origin Labs — iOS App Studio",
     description:
@@ -45,6 +55,11 @@ export default function RootLayout({
       lang="en"
       className={`${instrumentSerif.variable} h-full scroll-smooth`}
     >
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.png" type="image/png" sizes="512x512" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+      </head>
       <body className="min-h-full overflow-x-hidden bg-[#0A0A0A] font-serif text-white antialiased">
         {children}
       </body>
