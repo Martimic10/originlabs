@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import type { ProjectPlan } from "@/lib/project-inquiry";
+import { CAL_COM_URL } from "@/lib/site";
 
 const planOptions: { value: ProjectPlan; label: string }[] = [
   { value: "mvp", label: "MVP Apps — starting at $2,500" },
@@ -113,12 +114,23 @@ export default function ProjectForm() {
           Thanks for reaching out. We&apos;ll review your project details and
           get back to you within 1–2 business days.
         </p>
-        <Link
-          href="/"
-          className="mt-8 inline-flex items-center justify-center rounded-2xl bg-white px-7 py-3.5 text-sm font-semibold text-black transition-all hover:bg-zinc-200"
-        >
-          Back to Home
-        </Link>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+          <a
+            href={CAL_COM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-7 py-3.5 text-sm font-semibold text-black transition-all hover:bg-zinc-200"
+          >
+            Book a Call
+            <span aria-hidden>↗</span>
+          </a>
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center rounded-2xl border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:border-white/30 hover:bg-white/5"
+          >
+            Back to Home
+          </Link>
+        </div>
       </motion.div>
     );
   }
@@ -141,6 +153,15 @@ export default function ProjectForm() {
           Share a few details and we&apos;ll follow up with next steps. No
           commitment required.
         </p>
+        <a
+          href={CAL_COM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-6 inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:border-white/30 hover:bg-white/5"
+        >
+          Book a Call
+          <span aria-hidden>↗</span>
+        </a>
       </div>
 
       <form
