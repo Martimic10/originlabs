@@ -51,8 +51,7 @@ export const products: Product[] = [
       "Atlas is a personal travel map and memory journal. Pin the places you've been, capture moments from each trip, and build a living map of everywhere life has taken you.",
     status: "In Development",
     statusColor: "text-cyan-400 bg-cyan-400/10 border-cyan-400/20",
-    gradient:
-      "linear-gradient(160deg, #22d3ee 0%, #0891b2 40%, #155e75 100%)",
+    image: "/iphone16_01_map.png",
     glow: "group-hover:shadow-cyan-500/20",
     highlights: [
       "Interactive personal travel map",
@@ -61,21 +60,12 @@ export const products: Product[] = [
       "Built with SwiftUI",
     ],
     screenshots: [
-      {
-        gradient:
-          "linear-gradient(160deg, #22d3ee 0%, #0891b2 40%, #155e75 100%)",
-        label: "Map",
-      },
-      {
-        gradient:
-          "linear-gradient(160deg, #67e8f9 0%, #06b6d4 50%, #0e7490 100%)",
-        label: "Journal",
-      },
-      {
-        gradient:
-          "linear-gradient(160deg, #a5f3fc 0%, #0891b2 40%, #155e75 100%)",
-        label: "Trip",
-      },
+      { image: "/iphone16_01_map.png" },
+      { image: "/iphone16_02_timeline.png" },
+      { image: "/iphone16_03_stats.png" },
+      { image: "/iphone16_04_passport.png" },
+      { image: "/iphone16_05_location.png" },
+      { image: "/iphone16_06_recap.png" },
     ],
   },
   {
