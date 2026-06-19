@@ -20,7 +20,7 @@ const tiers = [
       "Launch-ready polish",
     ],
     cta: "Get started",
-    href: "#contact",
+    href: "/start-project?plan=mvp",
   },
   {
     name: "Growth Apps",
@@ -37,7 +37,7 @@ const tiers = [
       "90 days post-launch support",
     ],
     cta: "Start a project",
-    href: "#contact",
+    href: "/start-project?plan=growth",
     featured: true,
   },
   {
@@ -55,7 +55,7 @@ const tiers = [
       "Priority support & strategy",
     ],
     cta: "Let's talk",
-    href: "mailto:hello@originlabs.dev",
+    href: "/start-project?plan=custom",
   },
 ];
 

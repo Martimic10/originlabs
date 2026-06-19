@@ -34,7 +34,7 @@ export default function CTA() {
 
             <div className="mt-8 sm:mt-10">
               <a
-                href="mailto:hello@originlabs.dev"
+                href="/start-project"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-black/90 px-8 py-4 text-sm font-semibold text-white shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-all hover:bg-black min-[390px]:w-auto"
               >
                 Start a Project

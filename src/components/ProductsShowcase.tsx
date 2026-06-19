@@ -127,7 +127,7 @@ export default function ProductsShowcase() {
           className="mt-14 flex justify-center border-t border-white/[0.08] pt-14"
         >
           <Link
-            href="/#contact"
+            href="/start-project"
             className="inline-flex w-full items-center justify-center rounded-2xl bg-white px-7 py-3.5 text-sm font-semibold text-black transition-all hover:bg-zinc-200 min-[390px]:w-auto"
           >
             Start a Project

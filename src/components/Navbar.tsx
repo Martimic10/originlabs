@@ -18,7 +18,7 @@ const menuColumns = [
     links: [
       { href: "#process", label: "How It Works" },
       { href: "#contact", label: "Contact" },
-      { href: "mailto:hello@originlabs.dev", label: "Start a Project" },
+      { href: "/start-project", label: "Start a Project" },
     ],
   },
   {
