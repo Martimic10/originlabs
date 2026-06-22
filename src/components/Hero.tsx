@@ -106,10 +106,10 @@ export default function Hero() {
             className="relative w-[min(72vw,240px)] sm:w-[280px] md:w-[300px] lg:w-[340px] xl:w-[360px]"
           >
             <Image
-              src="/iphone_mockup.png"
+              src="/Hero-mockup.png"
               alt="Breezy expense sharing app on iPhone"
-              width={1351}
-              height={2759}
+              width={1274}
+              height={2690}
               priority
               className="h-auto w-full select-none drop-shadow-[0_32px_64px_rgba(0,0,0,0.55)]"
             />
