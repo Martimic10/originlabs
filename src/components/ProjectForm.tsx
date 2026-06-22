@@ -15,11 +15,22 @@ const planOptions: { value: ProjectPlan; label: string }[] = [
 ];
 
 const timelineOptions = [
-  "ASAP",
-  "1–2 months",
-  "3–6 months",
-  "Flexible / exploring",
+  "2–3 weeks",
+  "4–6 weeks",
+  "Flexible",
+  "Not sure yet",
 ];
+
+const planTimelineMap: Record<ProjectPlan, string> = {
+  mvp: "2–3 weeks",
+  growth: "4–6 weeks",
+  custom: "Flexible",
+  "not-sure": "",
+};
+
+function defaultTimelineForPlan(plan: ProjectPlan): string {
+  return planTimelineMap[plan];
+}
 
 const budgetOptions = [
   "Under $5,000",
@@ -44,7 +55,9 @@ export default function ProjectForm() {
   const [plan, setPlan] = useState<ProjectPlan>(
     normalizePlan(searchParams.get("plan")),
   );
-  const [timeline, setTimeline] = useState("");
+  const [timeline, setTimeline] = useState(() =>
+    defaultTimelineForPlan(normalizePlan(searchParams.get("plan"))),
+  );
   const [budget, setBudget] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -223,7 +236,11 @@ export default function ProjectForm() {
             name="plan"
             required
             value={plan}
-            onChange={(event) => setPlan(event.target.value as ProjectPlan)}
+            onChange={(event) => {
+              const nextPlan = event.target.value as ProjectPlan;
+              setPlan(nextPlan);
+              setTimeline(defaultTimelineForPlan(nextPlan));
+            }}
             className={`${inputClassName} appearance-none`}
           >
             {planOptions.map((option) => (
