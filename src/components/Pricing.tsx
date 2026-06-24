@@ -212,10 +212,10 @@ export default function Pricing() {
               Not sure which tier fits? We&apos;ll help you figure it out.
             </p>
             <a
-              href="mailto:hello@originlabs.dev"
+              href="mailto:martimicm1010@gmail.com"
               className="inline-flex items-center gap-2 text-sm font-medium text-zinc-400 transition-colors hover:text-white"
             >
-              hello@originlabs.dev
+              martimicm1010@gmail.com
               <span aria-hidden>→</span>
             </a>
           </div>

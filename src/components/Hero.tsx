@@ -79,7 +79,7 @@ export default function Hero() {
             {badges.map((badge) => (
               <span
                 key={badge}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-zinc-400"
+                className="rounded-2xl border border-white/25 bg-black/55 px-3 py-1.5 text-xs font-medium text-white/90 shadow-[0_2px_12px_rgba(0,0,0,0.4)] backdrop-blur-md"
               >
                 {badge}
               </span>
