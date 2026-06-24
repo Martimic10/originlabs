@@ -13,42 +13,60 @@ type LandscapeBackgroundProps = {
 
 const variantConfig = {
   hero: {
-    imagePosition: "object-[50%_32%] sm:object-[58%_40%] lg:object-[62%_38%]",
+    src: "/hero-background.jpeg",
+    imagePosition: "object-[34%_50%] sm:object-[38%_48%] lg:object-[40%_46%]",
+    imageClassName: "saturate-[1.08]",
+    objectFit: "object-cover",
     priority: true,
   },
   cta: {
-    imagePosition: "object-[50%_72%] sm:object-[48%_68%] md:object-[50%_64%]",
+    src: "/OriginLabs-awesome-background.jpeg",
+    imagePosition: "object-[50%_72%] sm:object-[50%_66%] lg:object-[50%_60%]",
+    imageClassName: "brightness-[1.1] saturate-[1.12]",
+    objectFit: "object-cover",
     priority: false,
   },
 } as const;
 
 function BackgroundImage({
+  src,
   imagePosition,
+  imageClassName,
+  objectFit,
   priority,
 }: {
+  src: string;
   imagePosition: string;
+  imageClassName: string;
+  objectFit: string;
   priority: boolean;
 }) {
   return (
     <Image
-      src="/background-hero.jpeg"
+      src={src}
       alt=""
       fill
       priority={priority}
       sizes="100vw"
       quality={92}
-      className={`object-cover brightness-110 ${imagePosition}`}
+      className={`${objectFit} ${imageClassName} ${imagePosition}`}
     />
   );
 }
 
 function ParallaxImage({
   containerRef,
+  src,
   imagePosition,
+  imageClassName,
+  objectFit,
   priority,
 }: {
   containerRef: RefObject<HTMLElement | null>;
+  src: string;
   imagePosition: string;
+  imageClassName: string;
+  objectFit: string;
   priority: boolean;
 }) {
   const { scrollYProgress } = useScroll({
@@ -56,15 +74,20 @@ function ParallaxImage({
     offset: ["start start", "end start"],
   });
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "14%"]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1.06, 1.12]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
 
   return (
     <motion.div
-      className="absolute -inset-[8%]"
-      style={{ y: imageY, scale: imageScale }}
+      className="absolute inset-0"
+      style={{ y: imageY }}
     >
-      <BackgroundImage imagePosition={imagePosition} priority={priority} />
+      <BackgroundImage
+        src={src}
+        imagePosition={imagePosition}
+        imageClassName={imageClassName}
+        objectFit={objectFit}
+        priority={priority}
+      />
     </motion.div>
   );
 }
@@ -80,13 +103,19 @@ export default function LandscapeBackground({
       {variant === "hero" && containerRef ? (
         <ParallaxImage
           containerRef={containerRef}
+          src={config.src}
           imagePosition={config.imagePosition}
+          imageClassName={config.imageClassName}
+          objectFit={config.objectFit}
           priority={config.priority}
         />
       ) : (
-        <div className="absolute -inset-[6%]">
+        <div className="absolute inset-0">
           <BackgroundImage
+            src={config.src}
             imagePosition={config.imagePosition}
+            imageClassName={config.imageClassName}
+            objectFit={config.objectFit}
             priority={config.priority}
           />
         </div>
@@ -94,16 +123,13 @@ export default function LandscapeBackground({
 
       {variant === "hero" ? (
         <>
-          <div className="absolute inset-0 bg-[#0A0A0A]/8" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/95 via-[#0A0A0A]/75 to-[#0A0A0A]/35 sm:via-[#0A0A0A]/55 sm:to-[#0A0A0A]/15 lg:via-[#0A0A0A]/25 lg:to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/50 via-transparent to-[#0A0A0A]/90" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_75%_45%,transparent_0%,#0A0A0A_100%)] opacity-15 lg:opacity-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/5 to-transparent sm:from-black/25 sm:via-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0A0A0A]/45" />
         </>
       ) : (
         <>
-          <div className="absolute inset-0 bg-[#0A0A0A]/8" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/35 to-[#0A0A0A]/75" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_40%,transparent_0%,#0A0A0A_100%)] opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/45 via-black/15 to-[#0A0A0A]/55" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_38%,transparent_0%,rgba(0,0,0,0.3)_100%)]" />
         </>
       )}
     </div>

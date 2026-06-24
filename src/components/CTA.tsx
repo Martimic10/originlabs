@@ -89,7 +89,7 @@ export default function CTA() {
           aria-hidden
           className="pointer-events-none relative -mb-6 overflow-hidden sm:-mb-8 md:-mb-12"
         >
-          <p className="select-none text-center text-[clamp(3rem,18vw,13rem)] font-bold uppercase leading-[0.85] tracking-tighter text-[#0A0A0A]/25 mix-blend-multiply translate-y-[18%]">
+          <p className="select-none text-center text-[clamp(3rem,18vw,13rem)] font-bold uppercase leading-[0.85] tracking-tighter text-white/15 translate-y-[18%]">
             Origin Labs
           </p>
         </div>

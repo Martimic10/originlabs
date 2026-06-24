@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 import LandscapeBackground from "./LandscapeBackground";
@@ -15,12 +15,6 @@ const badges = ["Swift", "SwiftUI", "iOS Native", "Product Studio"];
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const mockupY = useTransform(scrollYProgress, [0, 1], [0, 80]);
-  const mockupOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.4]);
 
   return (
     <section
@@ -94,17 +88,12 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          style={{ y: mockupY, opacity: mockupOpacity }}
           initial={false}
           animate="visible"
           variants={slideInRight}
           className="relative flex items-center justify-center lg:justify-end"
         >
-          <motion.div
-            animate={{ y: [0, -14, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative w-[min(72vw,240px)] sm:w-[280px] md:w-[300px] lg:w-[340px] xl:w-[360px]"
-          >
+          <div className="relative w-[min(72vw,240px)] sm:w-[280px] md:w-[300px] lg:w-[340px] xl:w-[360px]">
             <Image
               src="/Hero-mockup.png"
               alt="Breezy expense sharing app on iPhone"
@@ -113,7 +102,7 @@ export default function Hero() {
               priority
               className="h-auto w-full select-none drop-shadow-[0_32px_64px_rgba(0,0,0,0.55)]"
             />
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
