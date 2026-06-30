@@ -44,13 +44,14 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "impact-golf",
-    name: "Impact Golf",
+    slug: "teeup",
+    name: "TeeUp",
     tagline: "Every round is a competition.",
     description:
-      "Impact Golf turns every round into a competition with your crew. Track scores live, settle who's actually winning, and build season-long rivalries with the people you play with every week. Free to play full rounds with friends — Pro adds game modes, deep stats, and season tracking.",
+      "TeeUp turns every round into a competition with your crew. Track scores live, settle who's actually winning, and build season-long rivalries with the people you play with every week. Free to play full rounds with friends — Pro adds game modes, deep stats, and season tracking.",
     status: "Launching Soon",
     statusColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
+    image: "/IMG_6099_iphone16.png",
     gradient:
       "linear-gradient(160deg, #bef264 0%, #22c55e 42%, #14532d 100%)",
     glow: "group-hover:shadow-lime-500/20",
@@ -61,10 +62,11 @@ export const products: Product[] = [
       "Pro: game modes, stats & seasons",
     ],
     screenshots: [
-      { label: "Live scoring" },
-      { label: "Leaderboard" },
-      { label: "Season stats" },
-      { label: "Game modes" },
+      { image: "/IMG_6099_iphone16.png" },
+      { image: "/IMG_6098_iphone16.png" },
+      { image: "/IMG_6101_iphone16.png" },
+      { image: "/IMG_6105_iphone16.png" },
+      { image: "/IMG_6107_iphone16.png" },
     ],
   },
   {

@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
-import LandscapeBackground from "./LandscapeBackground";
+import { FlickeringGrid } from "@/registry/magicui/flickering-grid";
 import {
   fadeInUp,
   staggerContainer,
@@ -14,14 +13,20 @@ import {
 const badges = ["Swift", "SwiftUI", "iOS Native", "Product Studio"];
 
 export default function Hero() {
-  const ref = useRef<HTMLElement>(null);
-
   return (
-    <section
-      ref={ref}
-      className="relative min-h-[100svh] overflow-hidden pt-40 sm:pt-52 md:pt-56 lg:pt-64"
-    >
-      <LandscapeBackground variant="hero" containerRef={ref} />
+    <section className="relative min-h-svh overflow-hidden bg-black pt-40 sm:pt-52 md:pt-56 lg:pt-64">
+      <FlickeringGrid
+        className="absolute inset-0 z-0 size-full"
+        squareSize={4}
+        gridGap={6}
+        color="#6B7280"
+        maxOpacity={0.5}
+        flickerChance={0.1}
+      />
+      {/* Radial vignette — keeps centre clear, darkens edges for readability on all sizes */}
+      <div className="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(ellipse_90%_60%_at_50%_0%,transparent_40%,rgba(0,0,0,0.75)_100%)]" />
+      {/* Bottom fade — smooth transition into the next section */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-1 h-40 bg-linear-to-t from-black to-transparent sm:h-56" />
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-4 pb-16 pt-8 sm:gap-12 sm:px-6 sm:pb-24 sm:pt-12 md:gap-16 lg:grid-cols-2 lg:gap-8 lg:px-8 lg:pb-32 lg:pt-16">
         <motion.div
           initial={false}
@@ -95,8 +100,8 @@ export default function Hero() {
         >
           <div className="relative w-[min(72vw,240px)] sm:w-[280px] md:w-[300px] lg:w-[340px] xl:w-[360px]">
             <Image
-              src="/Hero-mockup.png"
-              alt="Breezy expense sharing app on iPhone"
+              src="/IMG_6099_iphone16.png"
+              alt="TeeUp golf scoring app on iPhone"
               width={1274}
               height={2690}
               priority
