@@ -5,9 +5,9 @@ import { staggerContainer, scaleIn } from "@/lib/animations";
 
 const services = [
   {
-    title: "MVP Development",
+    title: "Product Launch",
     description:
-      "Take your idea from concept to App Store with a polished, production-ready iOS app built for launch.",
+      "From concept to shipped — a polished, production-ready product on any platform, built for real users.",
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 0 1-11.18 0M12 3v6m0 0 3-3m-3 3-3-3" />
@@ -20,40 +20,40 @@ const services = [
   {
     title: "Product Design",
     description:
-      "UX and UI systems crafted for native iOS — intuitive flows, sharp visuals, and details that feel inevitable.",
+      "UX and UI systems for any platform — intuitive flows, sharp visuals, and details that feel inevitable.",
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
       </svg>
     ),
-    href: "#services",
+    href: "/start-project",
   },
   {
-    title: "iOS Development",
+    title: "AI Integration",
     description:
-      "Swift and SwiftUI builds with clean architecture, smooth performance, and the native feel users expect.",
+      "LLMs, voice, and smart workflows built into your product's core — not bolted on as an afterthought.",
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+      </svg>
+    ),
+    href: "/start-project",
+  },
+  {
+    title: "Native Development",
+    description:
+      "iOS, macOS, and beyond — Swift, SwiftUI, and modern platform tools for apps that feel truly at home.",
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
       </svg>
     ),
-    href: "#services",
-  },
-  {
-    title: "App Modernization",
-    description:
-      "Refresh outdated apps with modern design, better UX, and updated SwiftUI implementations.",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182" />
-      </svg>
-    ),
-    href: "#services",
+    href: "/start-project",
   },
   {
     title: "Ongoing Support",
     description:
-      "Maintenance, updates, and new features to keep your app running smoothly after launch.",
+      "Maintenance, updates, and new features to keep your product running smoothly after launch.",
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -62,9 +62,9 @@ const services = [
     href: "/start-project",
   },
   {
-    title: "App Store Launch",
+    title: "Platform Launch",
     description:
-      "Guidance through review, metadata, screenshots, and release strategy to ship with confidence.",
+      "Ship to the App Store, Mac App Store, or the web — with guidance on metadata, strategy, and release.",
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A8.966 8.966 0 0 1 3 12c0-1.105.2-2.164.568-3.147" />
@@ -84,11 +84,11 @@ export default function Services() {
               Our Services
             </h2>
             <p className="mt-3 max-w-lg text-base leading-relaxed text-zinc-400 sm:mt-4 sm:text-lg">
-              End-to-end iOS product development for founders who care about
+              End-to-end product development for founders who care about
               quality.
             </p>
             <p className="mt-1 max-w-lg text-base leading-relaxed text-zinc-500 sm:text-lg">
-              From first prototype to App Store launch and beyond.
+              From first sketch to launch — and everything after.
             </p>
           </div>
 

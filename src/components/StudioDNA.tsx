@@ -8,7 +8,7 @@ const pillars = [
   {
     title: "Design-Obsessed",
     description:
-      "Every pixel is intentional. Built for native iOS feel.",
+      "Every pixel is intentional. Products that feel inevitable from first tap.",
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
@@ -16,12 +16,12 @@ const pillars = [
     ),
   },
   {
-    title: "Swift Native",
+    title: "AI-Native",
     description:
-      "We build real apps using Swift and SwiftUI.",
+      "We weave AI into everything — from how we build to what we ship.",
     icon: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
       </svg>
     ),
   },
@@ -40,14 +40,14 @@ const pillars = [
 export default function StudioDNA() {
   return (
     <section className="relative py-20 sm:py-28 lg:py-32">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-transparent via-white/2 to-transparent" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
             We don&apos;t build apps.
             <br />
-            <span className="bg-gradient-to-r from-zinc-200 to-zinc-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-zinc-200 to-zinc-500 bg-clip-text text-transparent">
               We ship products.
             </span>
           </h2>
@@ -66,9 +66,9 @@ export default function StudioDNA() {
               variants={fadeInUp}
               whileHover={{ y: -4 }}
               transition={{ duration: 0.3 }}
-              className="group rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] sm:rounded-3xl sm:p-8"
+              className="group rounded-2xl border border-white/6 bg-white/2 p-6 transition-all duration-300 hover:border-white/12 hover:bg-white/4 sm:rounded-3xl sm:p-8"
             >
-              <div className="mb-4 inline-flex rounded-xl border border-white/10 bg-white/[0.05] p-3 text-zinc-300 transition-colors group-hover:border-blue-500/30 group-hover:text-blue-400 sm:mb-5">
+              <div className="mb-4 inline-flex rounded-xl border border-white/10 bg-white/5 p-3 text-zinc-300 transition-colors group-hover:border-blue-500/30 group-hover:text-blue-400 sm:mb-5">
                 {pillar.icon}
               </div>
               <h3 className="text-lg font-semibold text-white sm:text-xl">

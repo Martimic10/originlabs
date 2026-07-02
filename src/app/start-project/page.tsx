@@ -6,7 +6,7 @@ import ProjectForm from "@/components/ProjectForm";
 export const metadata: Metadata = {
   title: "Start a Project — Origin Labs",
   description:
-    "Tell us about your iOS app idea. Origin Labs builds design-first Swift and SwiftUI products for founders and startups.",
+    "Tell us about your idea. Origin Labs builds sharp, focused software products for founders and startups.",
 };
 
 export default function StartProjectPage() {

@@ -6,16 +6,16 @@ import { staggerContainer, scaleIn } from "@/lib/animations";
 
 const tiers = [
   {
-    name: "MVP Apps",
+    name: "Starter",
     price: "$2,500",
     priceNote: "starting at",
     description:
-      "Validate your idea with a polished, App Store-ready product built for real users.",
+      "Launch your first version — a polished, production-ready product built for real users on any platform.",
     timeline: "2–3 weeks",
     features: [
       "Core feature set scoped for launch",
-      "Native Swift & SwiftUI build",
-      "App Store submission support",
+      "Native platform build (iOS, macOS, or web)",
+      "Platform launch support",
       "Two design revision rounds",
       "Launch-ready polish",
     ],
@@ -23,16 +23,16 @@ const tiers = [
     href: "/start-project?plan=mvp",
   },
   {
-    name: "Growth Apps",
+    name: "Growth",
     price: "$5,000",
     priceNote: "starting at",
     description:
-      "Full-featured apps with design systems, integrations, and room to scale.",
+      "Full-featured products with AI, backend integrations, and room to scale.",
     timeline: "4–6 weeks",
     features: [
-      "Everything in MVP Apps",
+      "Everything in Starter",
       "Custom design system",
-      "Backend & API integrations",
+      "Backend, API & AI integrations",
       "Analytics & onboarding flows",
       "90 days post-launch support",
     ],
@@ -41,7 +41,7 @@ const tiers = [
     featured: true,
   },
   {
-    name: "Custom Builds",
+    name: "Custom",
     price: "Custom",
     priceNote: "tailored to you",
     description:
@@ -49,7 +49,7 @@ const tiers = [
     timeline: "Flexible",
     features: [
       "Dedicated product roadmap",
-      "Complex integrations & APIs",
+      "Complex AI, API & platform integrations",
       "Multi-platform expansion",
       "Ongoing development retainer",
       "Priority support & strategy",

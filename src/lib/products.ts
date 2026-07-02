@@ -16,34 +16,14 @@ export type Product = {
   glow: string;
   highlights: string[];
   screenshots: ProductScreenshot[];
+  link?: string;
+  platform?: "ios" | "macos" | "web";
 };
 
 export const products: Product[] = [
   {
-    slug: "breezy",
-    name: "Breezy",
-    tagline: "Split expenses without friction.",
-    description:
-      "Breezy makes splitting bills with friends effortless. Track shared costs, settle up instantly, and keep every group organized — all with a clean, native iOS experience.",
-    status: "In Development",
-    statusColor: "text-blue-400 bg-blue-400/10 border-blue-400/20",
-    image: "/iphone_mockup.png",
-    glow: "group-hover:shadow-blue-500/20",
-    highlights: [
-      "Group expense tracking",
-      "Real-time balance updates",
-      "Simple settle-up flows",
-      "Built with SwiftUI",
-    ],
-    screenshots: [
-      { image: "/iphone_mockup.png" },
-      { image: "/mockup_add_expense.png" },
-      { image: "/mockup_friends.png" },
-      { image: "/mockup_settle_up.png" },
-      { image: "/mockup_trip_report.png" },
-    ],
-  },
-  {
+    link: "https://impactai.golf/",
+    platform: "ios" as const,
     slug: "teeup",
     name: "TeeUp",
     tagline: "Every round is a competition.",
@@ -70,29 +50,46 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "mend",
-    name: "Mend",
-    tagline: "Recovery-focused journaling and support app.",
+    link: "https://textmilo.app/",
+    platform: "web" as const,
+    slug: "milo",
+    name: "Milo",
+    tagline: "Your AI, in your texts.",
     description:
-      "Mend is a thoughtful space for recovery and reflection. Journal privately, track progress, and access supportive tools designed with care and discretion.",
-    status: "In Development",
-    statusColor: "text-violet-400 bg-violet-400/10 border-violet-400/20",
-    glow: "group-hover:shadow-violet-500/20",
-    image: "/Mend-today-iphone16.png",
+      "Milo is a personal AI that lives in your messages. No app to download, no new interface to learn — just text it like you'd text anyone. It meets you where you already are.",
+    status: "Coming Soon",
+    statusColor: "text-blue-400 bg-blue-400/10 border-blue-400/20",
+    image: "/Milo-mockup.png",
+    gradient:
+      "linear-gradient(160deg, #818cf8 0%, #6366f1 42%, #1e1b4b 100%)",
+    glow: "group-hover:shadow-indigo-500/20",
     highlights: [
-      "Private journaling",
-      "Progress tracking",
-      "Mindful daily prompts",
-      "Privacy-first design",
+      "No app required — works over SMS/iMessage",
+      "Responds like a person, not a chatbot",
+      "Remembers context across conversations",
+      "Always in your pocket, always available",
     ],
-    screenshots: [
-      { image: "/Mend-today-iphone16.png" },
-      { image: "/Mend-checkin-iphone16.png" },
-      { image: "/Mend-mood-iphone16.png" },
-      { image: "/Mend-insights-iphone16.png" },
-      { image: "/Mend-session-iphone16.png" },
-      { image: "/Mend-profile-iphone16.png" },
+    screenshots: [],
+  },
+  {
+    platform: "macos" as const,
+    slug: "atlas",
+    name: "Atlas",
+    tagline: "Postman without the clutter.",
+    description:
+      "Atlas is a native macOS API client built for speed. Less bloat than Postman or Insomnia — just open it, test your endpoint, and move on. Built for people who want focus, not features.",
+    status: "Coming Soon",
+    statusColor: "text-slate-400 bg-slate-400/10 border-slate-400/20",
+    gradient:
+      "linear-gradient(160deg, #94a3b8 0%, #475569 42%, #0f172a 100%)",
+    glow: "group-hover:shadow-slate-500/20",
+    highlights: [
+      "Native macOS feel",
+      "Faster to start than Postman or Insomnia",
+      "Focused on the core use case",
+      "No account required",
     ],
+    screenshots: [],
   },
 ];
 

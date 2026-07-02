@@ -14,21 +14,21 @@ const steps = [
     step: 2,
     title: "Design",
     description:
-      "We craft intuitive UX and polished UI systems built for native iOS.",
+      "We craft intuitive UX and polished UI systems built for the platform that fits.",
     rotate: -5,
   },
   {
     step: 3,
     title: "Develop",
     description:
-      "We build in Swift and SwiftUI with clean architecture and obsessive attention to detail.",
+      "We build with the right tools for the job — clean architecture and obsessive attention to detail.",
     rotate: 4,
   },
   {
     step: 4,
     title: "Deliver",
     description:
-      "We refine, test, and launch your app to the App Store — ready for real users.",
+      "We refine, test, and ship — polished and ready for real users.",
     rotate: -5,
   },
 ];

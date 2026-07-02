@@ -10,7 +10,7 @@ import {
   slideInRight,
 } from "@/lib/animations";
 
-const badges = ["Swift", "SwiftUI", "iOS Native", "Product Studio"];
+const badges = ["AI Lab", "Product Studio", "iOS & macOS", "Swift"];
 
 export default function Hero() {
   return (
@@ -45,7 +45,7 @@ export default function Hero() {
             variants={slideInLeft}
             className="text-[2.35rem] font-bold leading-[1.08] tracking-tight text-white drop-shadow-[0_4px_32px_rgba(0,0,0,0.55)] min-[390px]:text-5xl sm:text-6xl lg:text-7xl"
           >
-            We build iOS apps that feel{" "}
+            We build products that feel{" "}
             <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
               inevitable.
             </span>
@@ -55,8 +55,8 @@ export default function Hero() {
             variants={fadeInUp}
             className="mt-4 max-w-lg text-base leading-relaxed text-zinc-300 drop-shadow-[0_2px_16px_rgba(0,0,0,0.65)] sm:mt-6 sm:text-lg"
           >
-            Design-first mobile apps built in Swift and SwiftUI. Crafted like
-            products, not projects.
+            An independent AI lab building sharp, focused software. Crafted
+            like products, not projects.
           </motion.p>
 
           <motion.div

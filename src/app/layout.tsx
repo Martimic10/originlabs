@@ -16,16 +16,17 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Origin Labs — iOS App Studio",
+  title: "Origin Labs — AI Lab",
   description:
-    "Design-first iOS apps built in Swift and SwiftUI. Origin Labs ships real products for founders and startups.",
+    "Origin Labs builds small, sharp products. An independent AI lab making software people actually use.",
   keywords: [
-    "iOS development",
+    "AI lab",
+    "product studio",
+    "iOS",
+    "macOS",
     "Swift",
-    "SwiftUI",
-    "app studio",
-    "MVP development",
-    "mobile apps",
+    "app development",
+    "software products",
   ],
   icons: {
     icon: [
@@ -36,9 +37,9 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    title: "Origin Labs — iOS App Studio",
+    title: "Origin Labs — AI Lab",
     description:
-      "Design-first iOS apps built in Swift and SwiftUI. Crafted like products, not projects.",
+      "Origin Labs builds small, sharp products. An independent AI lab making software people actually use.",
     type: "website",
   },
 };

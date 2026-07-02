@@ -26,10 +26,10 @@ export default function CTA() {
             className="relative max-w-3xl"
           >
             <h2 className="text-3xl font-bold tracking-tight text-white drop-shadow-[0_4px_32px_rgba(0,0,0,0.55)] min-[390px]:text-4xl sm:text-5xl lg:text-6xl">
-              Ready to build your app?
+              Ready to build something sharp?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-base text-zinc-200 drop-shadow-[0_2px_16px_rgba(0,0,0,0.65)] sm:mt-5 sm:text-lg md:text-xl">
-              Turn your idea into a real product in the App Store.
+              Turn your idea into a real product.
             </p>
 
             <div className="mt-8 sm:mt-10">
