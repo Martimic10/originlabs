@@ -5,31 +5,38 @@ import { motion } from "framer-motion";
 const steps = [
   {
     step: 1,
-    title: "We Learn",
+    title: "Discover",
     description:
       "We dig into your vision, users, and goals to shape a product direction that actually matters.",
     rotate: 4,
   },
   {
     step: 2,
-    title: "Design",
+    title: "Strategy",
     description:
-      "We craft intuitive UX and polished UI systems built for the platform that fits.",
+      "We map the right approach — scope, platform, and priorities aligned to your business goals.",
     rotate: -5,
   },
   {
     step: 3,
-    title: "Develop",
+    title: "Design",
     description:
-      "We build with the right tools for the job — clean architecture and obsessive attention to detail.",
+      "We craft intuitive UX and polished UI systems built for the platform that fits.",
     rotate: 4,
   },
   {
     step: 4,
-    title: "Deliver",
+    title: "Develop",
+    description:
+      "We build with the right tools for the job — clean architecture and obsessive attention to detail.",
+    rotate: -5,
+  },
+  {
+    step: 5,
+    title: "Launch",
     description:
       "We refine, test, and ship — polished and ready for real users.",
-    rotate: -5,
+    rotate: 4,
   },
 ];
 
@@ -38,7 +45,7 @@ export default function Process() {
     <section id="process" className="relative overflow-hidden py-20 sm:py-28 lg:py-32">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-center text-2xl font-bold uppercase tracking-[0.12em] text-white min-[390px]:text-3xl sm:text-4xl sm:tracking-[0.18em] md:text-5xl md:tracking-[0.22em]">
-          How We Work
+          How We Build
         </h2>
 
         <div className="mt-12 flex flex-col items-center gap-5 sm:mt-16 sm:gap-6 md:mt-20 md:flex-row md:items-stretch md:justify-center md:gap-0">

@@ -1,4 +1,9 @@
-export type ProjectPlan = "mvp" | "growth" | "custom" | "not-sure";
+export type ProjectPlan =
+  | "landing"
+  | "business"
+  | "ai"
+  | "native"
+  | "not-sure";
 
 export type ProjectInquiry = {
   name: string;

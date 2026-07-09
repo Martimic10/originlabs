@@ -6,7 +6,7 @@ import ProductsShowcase from "@/components/ProductsShowcase";
 export const metadata: Metadata = {
   title: "Products — Origin Labs",
   description:
-    "Explore the products Origin Labs is building — AI tools, native mobile and desktop apps, all built in-house.",
+    "Explore the products Origin Labs is building — AI tools, native iOS and macOS apps, all designed and built in-house.",
 };
 
 export default function ProductsPage() {

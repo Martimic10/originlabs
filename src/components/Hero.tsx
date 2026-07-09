@@ -1,16 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { FlickeringGrid } from "@/registry/magicui/flickering-grid";
-import {
-  fadeInUp,
-  staggerContainer,
-  slideInLeft,
-  slideInRight,
-} from "@/lib/animations";
+import { fadeInUp, staggerContainer, slideInLeft } from "@/lib/animations";
 
-const badges = ["AI Lab", "Product Studio", "iOS & macOS", "Swift"];
+const badges = ["Websites", "AI Applications", "iPhone Apps", "macOS Apps"];
 
 export default function Hero() {
   return (
@@ -25,61 +19,65 @@ export default function Hero() {
       />
       {/* Radial vignette — keeps centre clear, darkens edges for readability on all sizes */}
       <div className="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(ellipse_90%_60%_at_50%_0%,transparent_40%,rgba(0,0,0,0.75)_100%)]" />
+      {/* Soft glow behind the headline for depth */}
+      <div className="pointer-events-none absolute left-1/2 top-[18%] z-1 h-105 w-180 -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,rgba(59,130,246,0.16),transparent_70%)] blur-3xl" />
       {/* Bottom fade — smooth transition into the next section */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-1 h-40 bg-linear-to-t from-black to-transparent sm:h-56" />
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-4 pb-16 pt-8 sm:gap-12 sm:px-6 sm:pb-24 sm:pt-12 md:gap-16 lg:grid-cols-2 lg:gap-8 lg:px-8 lg:pb-32 lg:pt-16">
+      <div className="relative z-10 mx-auto max-w-4xl px-4 pb-20 pt-8 text-center sm:px-6 sm:pb-28 sm:pt-12 lg:pb-36 lg:pt-16">
         <motion.div
           initial={false}
           animate="visible"
           variants={staggerContainer}
-          className="flex flex-col"
+          className="flex flex-col items-center"
         >
           <motion.p
             variants={fadeInUp}
             className="mb-3 text-xs font-medium tracking-widest text-zinc-400 uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] sm:mb-4 sm:text-sm"
           >
-            Origin Labs
+            Origin Labs — Digital Product Studio
           </motion.p>
 
           <motion.h1
             variants={slideInLeft}
             className="text-[2.35rem] font-bold leading-[1.08] tracking-tight text-white drop-shadow-[0_4px_32px_rgba(0,0,0,0.55)] min-[390px]:text-5xl sm:text-6xl lg:text-7xl"
           >
-            We build products that feel{" "}
+            Beautiful websites. Powerful apps.{" "}
             <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
-              inevitable.
+              Built to grow your business.
             </span>
           </motion.h1>
 
           <motion.p
             variants={fadeInUp}
-            className="mt-4 max-w-lg text-base leading-relaxed text-zinc-300 drop-shadow-[0_2px_16px_rgba(0,0,0,0.65)] sm:mt-6 sm:text-lg"
+            className="mt-4 max-w-xl text-base leading-relaxed text-zinc-300 drop-shadow-[0_2px_16px_rgba(0,0,0,0.65)] sm:mt-6 sm:text-lg"
           >
-            An independent AI lab building sharp, focused software. Crafted
-            like products, not projects.
+            Origin Labs is a digital product studio creating high-converting
+            websites, AI-powered applications, and native Apple experiences.
+            We build our own products and partner with ambitious founders and
+            businesses to bring exceptional ideas to life.
           </motion.p>
 
           <motion.div
             variants={fadeInUp}
-            className="mt-8 flex w-full flex-col gap-3 min-[390px]:flex-row min-[390px]:flex-wrap sm:mt-10 sm:gap-4"
+            className="mt-8 flex w-full flex-col items-center gap-3 min-[390px]:w-auto min-[390px]:flex-row min-[390px]:flex-wrap min-[390px]:justify-center sm:mt-10 sm:gap-4"
           >
             <a
-              href="/products"
+              href="/start-project"
               className="inline-flex w-full items-center justify-center rounded-2xl bg-white px-7 py-3.5 text-sm font-semibold text-black transition-all hover:bg-zinc-200 hover:shadow-lg hover:shadow-white/10 min-[390px]:w-auto"
             >
-              View Work
+              Start Your Project
             </a>
             <a
-              href="/start-project"
+              href="/products"
               className="inline-flex w-full items-center justify-center rounded-2xl border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:border-white/30 hover:bg-white/5 min-[390px]:w-auto"
             >
-              Start a Project
+              View Our Work
             </a>
           </motion.div>
 
           <motion.div
             variants={fadeInUp}
-            className="mt-8 flex flex-wrap gap-2 sm:mt-12"
+            className="mt-8 flex flex-wrap justify-center gap-2 sm:mt-12"
           >
             {badges.map((badge) => (
               <span
@@ -90,24 +88,6 @@ export default function Hero() {
               </span>
             ))}
           </motion.div>
-        </motion.div>
-
-        <motion.div
-          initial={false}
-          animate="visible"
-          variants={slideInRight}
-          className="relative flex items-center justify-center lg:justify-end"
-        >
-          <div className="relative w-[min(72vw,240px)] sm:w-[280px] md:w-[300px] lg:w-[340px] xl:w-[360px]">
-            <Image
-              src="/IMG_6099_iphone16.png"
-              alt="TeeUp golf scoring app on iPhone"
-              width={1274}
-              height={2690}
-              priority
-              className="h-auto w-full select-none drop-shadow-[0_32px_64px_rgba(0,0,0,0.55)]"
-            />
-          </div>
         </motion.div>
       </div>
     </section>

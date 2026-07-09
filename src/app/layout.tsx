@@ -16,17 +16,20 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Origin Labs — AI Lab",
+  title: "Origin Labs — Digital Product Studio",
   description:
-    "Origin Labs builds small, sharp products. An independent AI lab making software people actually use.",
+    "Origin Labs is a digital product studio creating high-converting websites, AI-powered applications, and native Apple experiences for founders and businesses.",
   keywords: [
-    "AI lab",
-    "product studio",
+    "digital product studio",
+    "web design",
+    "landing pages",
+    "business websites",
+    "AI applications",
     "iOS",
     "macOS",
     "Swift",
     "app development",
-    "software products",
+    "product design",
   ],
   icons: {
     icon: [
@@ -37,9 +40,9 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    title: "Origin Labs — AI Lab",
+    title: "Origin Labs — Digital Product Studio",
     description:
-      "Origin Labs builds small, sharp products. An independent AI lab making software people actually use.",
+      "Origin Labs is a digital product studio creating high-converting websites, AI-powered applications, and native Apple experiences for founders and businesses.",
     type: "website",
   },
 };

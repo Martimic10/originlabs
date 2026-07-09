@@ -64,63 +64,51 @@ function AtlasMacPreview() {
         <div className="h-3 w-3 rounded-full bg-[#28C840]" />
         <div className="mx-auto flex items-center gap-2 rounded-lg bg-zinc-800 px-4 py-1.5">
           <div className="h-2 w-2 rounded-full bg-emerald-400" />
-          <span className="text-xs text-zinc-400">GET&nbsp;&nbsp;https://api.example.com/users</span>
+          <span className="text-xs text-zinc-400">Atlas — Today</span>
         </div>
-        <div className="ml-2 rounded-lg bg-zinc-700/60 px-4 py-1 text-xs text-white/60">Send</div>
       </div>
       <div className="flex" style={{ minHeight: 260 }}>
         <div className="w-44 shrink-0 border-r border-white/6 p-3 space-y-1">
           <p className="px-2 pb-1 text-[10px] font-medium uppercase tracking-widest text-zinc-600">
-            Requests
+            Workspace
           </p>
           <div className="flex items-center gap-2 rounded-lg bg-white/8 px-2 py-2">
-            <span className="text-[9px] font-semibold text-emerald-400">GET</span>
-            <span className="text-xs text-white/70">/users</span>
+            <span className="text-xs text-white/70">Today</span>
           </div>
           <div className="flex items-center gap-2 px-2 py-2">
-            <span className="text-[9px] font-semibold text-blue-400">POST</span>
-            <span className="text-xs text-zinc-500">/login</span>
+            <span className="text-xs text-zinc-500">Projects</span>
           </div>
           <div className="flex items-center gap-2 px-2 py-2">
-            <span className="text-[9px] font-semibold text-orange-400">PUT</span>
-            <span className="text-xs text-zinc-500">/user/1</span>
+            <span className="text-xs text-zinc-500">Notes</span>
           </div>
           <div className="flex items-center gap-2 px-2 py-2">
-            <span className="text-[9px] font-semibold text-red-400">DEL</span>
-            <span className="text-xs text-zinc-500">/user/1</span>
+            <span className="text-xs text-zinc-500">Archive</span>
           </div>
         </div>
         <div className="flex-1 p-4 space-y-3">
           <div className="flex items-center gap-3">
             <div className="rounded-lg bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-400">
-              200 OK
+              On track
             </div>
-            <div className="text-xs text-zinc-600">142ms · 1.2 KB</div>
+            <div className="text-xs text-zinc-600">4 of 6 tasks complete</div>
           </div>
-          <div className="rounded-xl bg-black/50 p-4 font-mono text-xs leading-relaxed text-zinc-300">
-            <div className="text-zinc-600">{"["}</div>
-            <div className="pl-4">
-              <div className="text-zinc-600">{"{"}</div>
-              <div className="pl-4">
-                <span className="text-sky-400">&quot;id&quot;</span>
-                {": "}
-                <span className="text-amber-400">1</span>
-                {","}
-              </div>
-              <div className="pl-4">
-                <span className="text-sky-400">&quot;name&quot;</span>
-                {": "}
-                <span className="text-emerald-400">&quot;Michael&quot;</span>
-                {","}
-              </div>
-              <div className="pl-4">
-                <span className="text-sky-400">&quot;role&quot;</span>
-                {": "}
-                <span className="text-emerald-400">&quot;admin&quot;</span>
-              </div>
-              <div className="text-zinc-600">{"}"}</div>
+          <div className="rounded-xl bg-black/50 p-4 font-mono text-xs leading-relaxed text-zinc-300 space-y-2.5">
+            <div className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              Ship landing page redesign
             </div>
-            <div className="text-zinc-600">{"]"}</div>
+            <div className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              Review App Store copy
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
+              Prep discovery call notes
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-zinc-600" />
+              Plan next sprint
+            </div>
           </div>
         </div>
       </div>
@@ -182,6 +170,9 @@ function ProductSection({
             <h2 className="text-3xl font-bold text-white sm:text-4xl">
               {product.name}
             </h2>
+            <span className="rounded-2xl border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium tracking-wide text-zinc-300">
+              {product.tag}
+            </span>
             <span
               className={`rounded-2xl border px-3 py-1 text-xs font-medium ${product.statusColor}`}
             >
@@ -255,14 +246,15 @@ export default function ProductsShowcase() {
           className="mb-12 text-center sm:mb-16"
         >
           <p className="text-sm font-medium tracking-widest text-zinc-500 uppercase">
-            Our Products
+            Products We&apos;re Building
           </p>
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-            Products we&apos;re building
+            The best way to build for others is to build ourselves.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base text-zinc-400 sm:text-lg">
-            Real products, not client work. Each one designed and built in-house
-            with the same care we bring to every project.
+            Every product in our portfolio is designed, developed, and
+            maintained in-house, giving us firsthand experience creating
+            software people genuinely enjoy using.
           </p>
         </motion.div>
 

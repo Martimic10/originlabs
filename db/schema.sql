@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS project_inquiries (
   name TEXT NOT NULL,
   email TEXT NOT NULL,
   company TEXT,
-  plan TEXT NOT NULL CHECK (plan IN ('mvp', 'growth', 'custom', 'not-sure')),
+  plan TEXT NOT NULL CHECK (plan IN ('landing', 'business', 'ai', 'native', 'not-sure')),
   timeline TEXT,
   budget TEXT,
   message TEXT NOT NULL,

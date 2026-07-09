@@ -7,6 +7,7 @@ export type ProductScreenshot = {
 export type Product = {
   slug: string;
   name: string;
+  tag: string;
   tagline: string;
   description: string;
   status: string;
@@ -26,9 +27,10 @@ export const products: Product[] = [
     platform: "ios" as const,
     slug: "teeup",
     name: "TeeUp",
+    tag: "iOS",
     tagline: "Every round is a competition.",
     description:
-      "TeeUp turns every round into a competition with your crew. Track scores live, settle who's actually winning, and build season-long rivalries with the people you play with every week. Free to play full rounds with friends — Pro adds game modes, deep stats, and season tracking.",
+      "A modern golf companion built to make every round more fun through games, achievements, statistics, and friendly competition. Free to play full rounds with friends — Pro adds game modes, deep stats, and season tracking.",
     status: "Launching Soon",
     statusColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
     image: "/IMG_6099_iphone16.png",
@@ -54,9 +56,10 @@ export const products: Product[] = [
     platform: "web" as const,
     slug: "milo",
     name: "Milo",
+    tag: "AI",
     tagline: "Your AI, in your texts.",
     description:
-      "Milo is a personal AI that lives in your messages. No app to download, no new interface to learn — just text it like you'd text anyone. It meets you where you already are.",
+      "Our flagship AI companion designed to help people stay organized, productive, and supported through natural conversations. No app to download, no new interface to learn — just text it like you'd text anyone.",
     status: "Coming Soon",
     statusColor: "text-blue-400 bg-blue-400/10 border-blue-400/20",
     image: "/Milo-mockup.png",
@@ -75,19 +78,20 @@ export const products: Product[] = [
     platform: "macos" as const,
     slug: "atlas",
     name: "Atlas",
-    tagline: "Postman without the clutter.",
+    tag: "macOS",
+    tagline: "Focus, built for macOS.",
     description:
-      "Atlas is a native macOS API client built for speed. Less bloat than Postman or Insomnia — just open it, test your endpoint, and move on. Built for people who want focus, not features.",
+      "A premium macOS productivity application built for the Apple ecosystem. Coming soon.",
     status: "Coming Soon",
     statusColor: "text-slate-400 bg-slate-400/10 border-slate-400/20",
     gradient:
       "linear-gradient(160deg, #94a3b8 0%, #475569 42%, #0f172a 100%)",
     glow: "group-hover:shadow-slate-500/20",
     highlights: [
-      "Native macOS feel",
-      "Faster to start than Postman or Insomnia",
-      "Focused on the core use case",
-      "No account required",
+      "Native macOS experience",
+      "Built for the Apple ecosystem",
+      "Designed for daily focus",
+      "Launching soon",
     ],
     screenshots: [],
   },

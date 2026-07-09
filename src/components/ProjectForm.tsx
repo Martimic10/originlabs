@@ -8,9 +8,10 @@ import type { ProjectPlan } from "@/lib/project-inquiry";
 import { CAL_COM_URL } from "@/lib/site";
 
 const planOptions: { value: ProjectPlan; label: string }[] = [
-  { value: "mvp", label: "MVP Apps — starting at $2,500" },
-  { value: "growth", label: "Growth Apps — starting at $5,000" },
-  { value: "custom", label: "Custom Build" },
+  { value: "landing", label: "Landing Page — starting at $995" },
+  { value: "business", label: "Business Website — starting at $2,000" },
+  { value: "ai", label: "AI Applications — starting at $5,000" },
+  { value: "native", label: "Native Apps — starting at $3,000" },
   { value: "not-sure", label: "Not sure yet" },
 ];
 
@@ -22,9 +23,10 @@ const timelineOptions = [
 ];
 
 const planTimelineMap: Record<ProjectPlan, string> = {
-  mvp: "2–3 weeks",
-  growth: "4–6 weeks",
-  custom: "Flexible",
+  landing: "2–3 weeks",
+  business: "2–3 weeks",
+  ai: "4–6 weeks",
+  native: "4–6 weeks",
   "not-sure": "",
 };
 
@@ -44,7 +46,12 @@ const inputClassName =
   "w-full rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3.5 text-sm text-white outline-none transition-colors placeholder:text-zinc-500 focus:border-white/25 focus:bg-white/[0.06]";
 
 function normalizePlan(value: string | null): ProjectPlan {
-  if (value === "mvp" || value === "growth" || value === "custom") {
+  if (
+    value === "landing" ||
+    value === "business" ||
+    value === "ai" ||
+    value === "native"
+  ) {
     return value;
   }
   return "not-sure";
@@ -160,7 +167,7 @@ export default function ProjectForm() {
           Start a Project
         </p>
         <h1 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-          Tell us about your app
+          Tell us about your project
         </h1>
         <p className="mt-4 text-base text-zinc-400 sm:text-lg">
           Share a few details and we&apos;ll follow up with next steps. No

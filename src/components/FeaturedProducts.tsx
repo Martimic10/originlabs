@@ -16,33 +16,29 @@ function MacWindowMockup({ gradient }: { gradient?: string }) {
         <div className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
         <div className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
         <div className="mx-auto rounded bg-zinc-700/50 px-6 py-0.5 text-[9px] text-zinc-400">
-          GET /users
+          Atlas
         </div>
       </div>
       <div className="flex" style={{ minHeight: 180, background: gradient }}>
         <div className="w-18 shrink-0 border-r border-white/[0.07] bg-black/25 p-2 space-y-1">
-          <div className="rounded bg-white/[0.14] px-1.5 py-1.5 text-[8px] text-white/75">GET /users</div>
-          <div className="px-1.5 py-1.5 text-[8px] text-white/25">POST /auth</div>
-          <div className="px-1.5 py-1.5 text-[8px] text-white/25">DEL /user</div>
+          <div className="rounded bg-white/[0.14] px-1.5 py-1.5 text-[8px] text-white/75">Today</div>
+          <div className="px-1.5 py-1.5 text-[8px] text-white/25">Projects</div>
+          <div className="px-1.5 py-1.5 text-[8px] text-white/25">Archive</div>
         </div>
         <div className="flex-1 p-3 space-y-2">
           <div className="flex gap-1.5">
-            <div className="rounded bg-emerald-500/25 px-1.5 py-0.5 text-[8px] font-semibold text-emerald-300">200 OK</div>
-            <div className="rounded bg-white/[0.07] px-1.5 py-0.5 text-[8px] text-white/30">128ms</div>
+            <div className="rounded bg-emerald-500/25 px-1.5 py-0.5 text-[8px] font-semibold text-emerald-300">On track</div>
+            <div className="rounded bg-white/[0.07] px-1.5 py-0.5 text-[8px] text-white/30">3 tasks</div>
           </div>
-          <div className="rounded-lg bg-black/40 p-2 font-mono text-[8px] leading-relaxed text-white/60 space-y-0.5">
-            <div className="text-white/25">{"{"}</div>
-            <div className="pl-3">
-              <span className="text-sky-400">&quot;name&quot;</span>
-              {": "}
-              <span className="text-emerald-400">&quot;Michael&quot;</span>
+          <div className="rounded-lg bg-black/40 p-2 font-mono text-[8px] leading-relaxed text-white/60 space-y-1.5">
+            <div className="flex items-center gap-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              Ship landing page
             </div>
-            <div className="pl-3">
-              <span className="text-sky-400">&quot;role&quot;</span>
-              {": "}
-              <span className="text-emerald-400">&quot;admin&quot;</span>
+            <div className="flex items-center gap-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
+              Review app store copy
             </div>
-            <div className="text-white/25">{"}"}</div>
           </div>
         </div>
       </div>
@@ -76,14 +72,15 @@ export default function FeaturedProducts() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <p className="text-sm font-medium tracking-widest text-zinc-500 uppercase">
-            Our Products
+            Products We&apos;re Building
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-            Products we&apos;re building
+            The best way to build for others is to build ourselves.
           </h2>
           <p className="mt-4 max-w-xl text-base text-zinc-400 sm:text-lg">
-            Real products, not client work. Each one designed and built in-house
-            with the same care we bring to every project.
+            Every product in our portfolio is designed, developed, and
+            maintained in-house, giving us firsthand experience creating
+            software people genuinely enjoy using.
           </p>
         </ScrollReveal>
 
@@ -92,9 +89,9 @@ export default function FeaturedProducts() {
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={staggerContainer}
-          className="mt-12 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-2"
+          className="mt-12 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
-          {products.filter((p) => p.slug !== "atlas").map((product) => (
+          {products.map((product) => (
             <Link
               key={product.name}
               href={`/products?app=${product.slug}`}
@@ -111,19 +108,24 @@ export default function FeaturedProducts() {
                 <ProductVisual product={product} />
 
                 <div className="relative mt-4">
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="flex flex-wrap items-center gap-2">
                     <h3 className="text-xl font-bold text-white sm:text-2xl">
                       {product.name}
                     </h3>
+                    <span className="rounded-2xl border border-white/15 bg-white/5 px-2.5 py-0.5 text-xs font-medium tracking-wide text-zinc-300">
+                      {product.tag}
+                    </span>
+                  </div>
+                  <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                    <p className="text-sm text-zinc-400 sm:text-base">
+                      {product.tagline}
+                    </p>
                     <span
                       className={`w-fit shrink-0 rounded-2xl border px-3 py-1 text-xs font-medium ${product.statusColor}`}
                     >
                       {product.status}
                     </span>
                   </div>
-                  <p className="mt-2 text-sm text-zinc-400 sm:text-base">
-                    {product.tagline}
-                  </p>
                 </div>
               </motion.article>
             </Link>

@@ -3,59 +3,74 @@
 import { motion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 import { staggerContainer, scaleIn } from "@/lib/animations";
+import { CAL_COM_URL } from "@/lib/site";
 
 const tiers = [
   {
-    name: "Starter",
-    price: "$2,500",
+    name: "Landing Page",
+    price: "$995",
     priceNote: "starting at",
     description:
-      "Launch your first version — a polished, production-ready product built for real users on any platform.",
-    timeline: "2–3 weeks",
+      "A beautiful, high-converting page built to turn visitors into customers.",
     features: [
-      "Core feature set scoped for launch",
-      "Native platform build (iOS, macOS, or web)",
-      "Platform launch support",
-      "Two design revision rounds",
-      "Launch-ready polish",
+      "Custom design",
+      "Responsive development",
+      "Contact forms",
+      "SEO foundations",
+      "Performance optimization",
     ],
     cta: "Get started",
-    href: "/start-project?plan=mvp",
+    href: "/start-project?plan=landing",
   },
   {
-    name: "Growth",
-    price: "$5,000",
+    name: "Business Website",
+    price: "$2,000",
     priceNote: "starting at",
     description:
-      "Full-featured products with AI, backend integrations, and room to scale.",
-    timeline: "4–6 weeks",
+      "A modern website that helps your business establish credibility and grow online.",
     features: [
-      "Everything in Starter",
-      "Custom design system",
-      "Backend, API & AI integrations",
-      "Analytics & onboarding flows",
-      "90 days post-launch support",
+      "2–5 pages",
+      "Custom design",
+      "Responsive development",
+      "Analytics",
+      "SEO foundations",
+      "CMS integration (optional)",
     ],
     cta: "Start a project",
-    href: "/start-project?plan=growth",
+    href: "/start-project?plan=business",
     featured: true,
   },
   {
-    name: "Custom",
-    price: "Custom",
-    priceNote: "tailored to you",
+    name: "AI Applications",
+    price: "$5,000",
+    priceNote: "starting at",
     description:
-      "Complex products, multi-phase roadmaps, and ongoing partnership for ambitious teams.",
-    timeline: "Flexible",
+      "Intelligent software powered by modern AI technologies, built to scale.",
     features: [
-      "Dedicated product roadmap",
-      "Complex AI, API & platform integrations",
-      "Multi-platform expansion",
-      "Ongoing development retainer",
-      "Priority support & strategy",
+      "AI integrations",
+      "Authentication",
+      "Backend",
+      "APIs",
+      "Dashboards",
+      "Deployment",
     ],
-    cta: "Let's talk",
-    href: "/start-project?plan=custom",
+    cta: "Start a project",
+    href: "/start-project?plan=ai",
+  },
+  {
+    name: "Native Apps",
+    price: "$3,000",
+    priceNote: "starting at",
+    description:
+      "Beautiful SwiftUI applications built for iPhone and macOS.",
+    features: [
+      "SwiftUI development",
+      "Testing",
+      "App Store preparation",
+      "Deployment assistance",
+    ],
+    cta: "Start a project",
+    href: "/start-project?plan=native",
   },
 ];
 
@@ -78,36 +93,24 @@ export default function Pricing() {
   return (
     <section id="pricing" className="relative py-20 sm:py-28 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <ScrollReveal className="max-w-2xl">
-            <p className="text-sm font-medium tracking-widest text-zinc-500 uppercase">
-              Pricing
-            </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
-              Invest in something
-              <br className="hidden sm:block" />
-              {" "}worth shipping
-            </h2>
-            <p className="mt-4 max-w-lg text-base leading-relaxed text-zinc-400 sm:text-lg">
-              Clear starting points for every stage — from first launch to full
-              product builds. No hidden fees, no surprises.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.1} className="shrink-0 lg:max-w-xs">
-            <p className="text-sm leading-relaxed text-zinc-500 sm:max-w-xs lg:text-right">
-              Every project starts with a free discovery call. We&apos;ll scope
-              the right fit before you commit.
-            </p>
-          </ScrollReveal>
-        </div>
+        <ScrollReveal className="max-w-2xl">
+          <p className="text-sm font-medium tracking-widest text-zinc-500 uppercase">
+            Pricing
+          </p>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+            Transparent starting prices
+          </h2>
+          <p className="mt-4 max-w-lg text-base leading-relaxed text-zinc-400 sm:text-lg">
+            Every project is unique, but these are typical starting points.
+          </p>
+        </ScrollReveal>
 
         <motion.div
           initial={false}
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={staggerContainer}
-          className="mt-12 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 lg:items-center"
+          className="mt-12 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-4 lg:items-center"
         >
           {tiers.map((tier) => {
             const featured = "featured" in tier && tier.featured;
@@ -161,25 +164,10 @@ export default function Pricing() {
                   {tier.description}
                 </p>
 
-                <div className="mt-6 inline-flex w-fit items-center gap-2 rounded-2xl border border-white/[0.08] bg-white/[0.04] px-3 py-1.5 text-xs text-zinc-400">
-                  <svg
-                    className="h-3.5 w-3.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={1.5}
-                    aria-hidden
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                    />
-                  </svg>
-                  {tier.timeline}
-                </div>
-
-                <ul className="mt-8 flex-1 space-y-3.5">
+                <p className="mt-8 text-xs font-medium tracking-widest text-zinc-500 uppercase">
+                  Includes
+                </p>
+                <ul className="mt-4 flex-1 space-y-3.5">
                   {tier.features.map((feature) => (
                     <li
                       key={feature}
@@ -207,15 +195,17 @@ export default function Pricing() {
         </motion.div>
 
         <ScrollReveal delay={0.2}>
-          <div className="mt-14 flex flex-col items-center gap-4 border-t border-white/[0.08] pt-10 text-center sm:flex-row sm:justify-between sm:text-left">
-            <p className="text-sm text-zinc-500">
-              Not sure which tier fits? We&apos;ll help you figure it out.
+          <div className="mt-14 flex flex-col items-center gap-5 border-t border-white/[0.08] pt-10 text-center sm:flex-row sm:justify-between sm:text-left">
+            <p className="text-base text-zinc-400 sm:text-lg">
+              Need something custom? Let&apos;s build it together.
             </p>
             <a
-              href="mailto:martimicm1010@gmail.com"
-              className="inline-flex items-center gap-2 text-sm font-medium text-zinc-400 transition-colors hover:text-white"
+              href={CAL_COM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-7 py-3.5 text-sm font-semibold text-black transition-all hover:bg-zinc-200 hover:shadow-lg hover:shadow-white/10 sm:w-auto"
             >
-              martimicm1010@gmail.com
+              Book a Discovery Call
               <span aria-hidden>→</span>
             </a>
           </div>
