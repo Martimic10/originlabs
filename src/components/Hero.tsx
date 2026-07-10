@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FlickeringGrid } from "@/registry/magicui/flickering-grid";
+import Image from "next/image";
 import { fadeInUp, staggerContainer, slideInLeft } from "@/lib/animations";
 
 const badges = ["Websites", "AI Applications", "iPhone Apps", "macOS Apps"];
@@ -9,20 +9,23 @@ const badges = ["Websites", "AI Applications", "iPhone Apps", "macOS Apps"];
 export default function Hero() {
   return (
     <section className="relative min-h-svh overflow-hidden bg-black pt-40 sm:pt-52 md:pt-56 lg:pt-64">
-      <FlickeringGrid
-        className="absolute inset-0 z-0 size-full"
-        squareSize={4}
-        gridGap={6}
-        color="#6B7280"
-        maxOpacity={0.5}
-        flickerChance={0.1}
+      <Image
+        src="/OriginLabs-hero-background.jpeg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        quality={90}
+        className="z-0 object-cover object-[54%_30%] saturate-[0.85] contrast-[1.05]"
       />
-      {/* Radial vignette — keeps centre clear, darkens edges for readability on all sizes */}
-      <div className="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(ellipse_90%_60%_at_50%_0%,transparent_40%,rgba(0,0,0,0.75)_100%)]" />
-      {/* Soft glow behind the headline for depth */}
-      <div className="pointer-events-none absolute left-1/2 top-[18%] z-1 h-105 w-180 -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,rgba(59,130,246,0.16),transparent_70%)] blur-3xl" />
+      {/* Base tint — brings the whole photo down so text always has a floor to read against */}
+      <div className="pointer-events-none absolute inset-0 z-1 bg-black/45" />
+      {/* Radial vignette — darkest behind the headline, lighter toward the corners */}
+      <div className="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(ellipse_80%_60%_at_50%_42%,rgba(0,0,0,0.72)_0%,rgba(0,0,0,0.4)_55%,rgba(0,0,0,0.2)_100%)]" />
       {/* Bottom fade — smooth transition into the next section */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-1 h-40 bg-linear-to-t from-black to-transparent sm:h-56" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-1 h-48 bg-linear-to-t from-black to-transparent sm:h-64" />
+      {/* Top fade — keeps the navbar readable over bright sky */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-1 h-32 bg-linear-to-b from-black/70 to-transparent sm:h-40" />
       <div className="relative z-10 mx-auto max-w-4xl px-4 pb-20 pt-8 text-center sm:px-6 sm:pb-28 sm:pt-12 lg:pb-36 lg:pt-16">
         <motion.div
           initial={false}
@@ -69,7 +72,7 @@ export default function Hero() {
             </a>
             <a
               href="/products"
-              className="inline-flex w-full items-center justify-center rounded-2xl border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:border-white/30 hover:bg-white/5 min-[390px]:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-2xl border border-white/25 bg-black/25 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-white/40 hover:bg-black/35 min-[390px]:w-auto"
             >
               View Our Work
             </a>
@@ -82,7 +85,7 @@ export default function Hero() {
             {badges.map((badge) => (
               <span
                 key={badge}
-                className="rounded-2xl border border-white/25 bg-black/55 px-3 py-1.5 text-xs font-medium text-white/90 shadow-[0_2px_12px_rgba(0,0,0,0.4)] backdrop-blur-md"
+                className="rounded-2xl border border-white/25 bg-black/60 px-3 py-1.5 text-xs font-medium text-white/90 shadow-[0_2px_12px_rgba(0,0,0,0.4)] backdrop-blur-md"
               >
                 {badge}
               </span>

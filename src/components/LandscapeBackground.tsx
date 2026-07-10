@@ -20,9 +20,9 @@ const variantConfig = {
     priority: true,
   },
   cta: {
-    src: "/OriginLabs-awesome-background.jpeg",
-    imagePosition: "object-[50%_72%] sm:object-[50%_66%] lg:object-[50%_60%]",
-    imageClassName: "brightness-[1.1] saturate-[1.12]",
+    src: "/OriginLabs-footer-background.jpeg",
+    imagePosition: "object-[52%_50%] sm:object-[54%_50%] lg:object-[56%_50%]",
+    imageClassName: "brightness-[0.95] contrast-[1.05] saturate-[0.85]",
     objectFit: "object-cover",
     priority: false,
   },
@@ -123,13 +123,19 @@ export default function LandscapeBackground({
 
       {variant === "hero" ? (
         <>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/5 to-transparent sm:from-black/25 sm:via-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0A0A0A]/45" />
+          <div className="absolute inset-0 bg-linear-to-r from-black/30 via-black/5 to-transparent sm:from-black/25 sm:via-transparent" />
+          <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#0A0A0A]/45" />
         </>
       ) : (
         <>
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/45 via-black/15 to-[#0A0A0A]/55" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_38%,transparent_0%,rgba(0,0,0,0.3)_100%)]" />
+          {/* Base tint — keeps the whole photo grounded in the dark theme */}
+          <div className="absolute inset-0 bg-black/35" />
+          {/* Vertical grade — lighter through the ocean band, darkest at the top (headline) and bottom (footer) */}
+          <div className="absolute inset-0 bg-linear-to-b from-black/55 via-black/20 to-black/85" />
+          {/* Radial vignette — keeps the centre clear, darkens the edges */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_38%,transparent_0%,rgba(0,0,0,0.35)_100%)]" />
+          {/* Solid fade at the very bottom — this is the last section on the page */}
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-b from-transparent to-black sm:h-56" />
         </>
       )}
     </div>

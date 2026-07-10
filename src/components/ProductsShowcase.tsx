@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
@@ -9,53 +10,7 @@ import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { products } from "@/lib/products";
 import type { Product } from "@/lib/products";
 
-function MiloSMSPreview() {
-  return (
-    <div className="w-full max-w-sm">
-      <div className="overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 shadow-2xl shadow-black/50">
-        <div className="flex items-center justify-between bg-zinc-900/80 px-5 py-3 text-[11px]">
-          <span className="text-white/40">9:41</span>
-          <span className="font-semibold text-white/90">Milo</span>
-          <span className="text-white/40">●●●</span>
-        </div>
-        <div className="space-y-3 bg-black/20 p-4">
-          <div className="flex justify-end">
-            <div className="max-w-[72%] rounded-2xl rounded-br-md bg-[#2376F5] px-4 py-2.5 text-sm text-white">
-              What wine pairs with salmon?
-            </div>
-          </div>
-          <div className="flex justify-start">
-            <div className="max-w-[72%] rounded-2xl rounded-bl-md bg-zinc-800 px-4 py-2.5 text-sm text-white/90">
-              A crisp Pinot Gris or lightly oaked Chardonnay. Trimbach from Alsace is a reliable pick.
-            </div>
-          </div>
-          <div className="flex justify-end">
-            <div className="max-w-[72%] rounded-2xl rounded-br-md bg-[#2376F5] px-4 py-2.5 text-sm text-white">
-              Any under $25?
-            </div>
-          </div>
-          <div className="flex justify-start">
-            <div className="max-w-[72%] rounded-2xl rounded-bl-md bg-zinc-800 px-4 py-2.5 text-sm text-white/90">
-              Hugel &quot;Gentil&quot; or J. Lohr Riverstone Chardonnay — both around $15–20 and great with fish.
-            </div>
-          </div>
-        </div>
-        <div className="flex items-center gap-2 bg-zinc-900/80 px-4 py-3">
-          <div className="flex-1 rounded-2xl border border-white/10 bg-zinc-800/60 px-4 py-2 text-sm text-zinc-500">
-            Message
-          </div>
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2376F5]">
-            <svg className="h-4 w-4 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
-              <path d="M3.478 2.405a.75.75 0 0 0-.926.94l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.405Z" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function AtlasMacPreview() {
+function MacWorkspacePreview({ product }: { product: Product }) {
   return (
     <div className="w-full max-w-2xl overflow-hidden rounded-xl border border-white/10 bg-zinc-950 shadow-2xl shadow-black/50">
       <div className="flex items-center gap-2 border-b border-white/10 bg-zinc-900 px-4 py-3">
@@ -64,7 +19,7 @@ function AtlasMacPreview() {
         <div className="h-3 w-3 rounded-full bg-[#28C840]" />
         <div className="mx-auto flex items-center gap-2 rounded-lg bg-zinc-800 px-4 py-1.5">
           <div className="h-2 w-2 rounded-full bg-emerald-400" />
-          <span className="text-xs text-zinc-400">Atlas — Today</span>
+          <span className="text-xs text-zinc-400">{product.name} — Today</span>
         </div>
       </div>
       <div className="flex" style={{ minHeight: 260 }}>
@@ -116,18 +71,67 @@ function AtlasMacPreview() {
   );
 }
 
+function BrowserPreview({ product }: { product: Product }) {
+  const domain = product.link
+    ? product.link.replace(/^https?:\/\//, "").replace(/\/$/, "")
+    : product.name;
+
+  return (
+    <div className="w-full max-w-2xl overflow-hidden rounded-xl border border-white/10 bg-zinc-950 shadow-2xl shadow-black/50">
+      <div className="flex items-center gap-2 border-b border-white/10 bg-zinc-900 px-4 py-3">
+        <div className="h-3 w-3 rounded-full bg-[#FF5F57]" />
+        <div className="h-3 w-3 rounded-full bg-[#FEBC2E]" />
+        <div className="h-3 w-3 rounded-full bg-[#28C840]" />
+        <div className="mx-auto flex items-center gap-2 rounded-lg bg-zinc-800 px-4 py-1.5">
+          <div className="h-2 w-2 rounded-full bg-emerald-400" />
+          <span className="text-xs text-zinc-400">{domain}</span>
+        </div>
+      </div>
+      <div
+        className="flex flex-col items-center justify-center gap-3 p-10"
+        style={{ minHeight: 260, background: product.gradient }}
+      >
+        <span className="text-xl font-semibold tracking-tight text-white/90">
+          {product.name}
+        </span>
+        <div className="mt-2 w-full max-w-sm space-y-2">
+          <div className="h-2.5 w-2/3 rounded-full bg-white/25" />
+          <div className="h-2.5 w-1/2 rounded-full bg-white/15" />
+          <div className="mt-4 h-20 w-full rounded-lg bg-white/10" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function WebsiteScreenshotMockup({ product }: { product: Product }) {
+  return (
+    <div className="w-full overflow-hidden rounded-[1.75rem] border-10 border-white bg-white shadow-2xl shadow-black/50 sm:rounded-4xl sm:border-12">
+      <div className="relative aspect-2938/1530 w-full bg-zinc-900">
+        <Image
+          src={product.image!}
+          alt={`${product.name} preview`}
+          fill
+          sizes="(min-width: 1024px) 60vw, 100vw"
+          className="object-cover object-top"
+        />
+      </div>
+    </div>
+  );
+}
+
 function ProductVisual({ product }: { product: Product }) {
+  if (product.platform === "web" && product.image) {
+    return (
+      <div className="min-w-0">
+        <WebsiteScreenshotMockup product={product} />
+      </div>
+    );
+  }
   if (product.screenshots.length > 0) {
     return (
       <div className="min-w-0 lg:flex lg:justify-end">
         <ScreenshotCarousel screenshots={product.screenshots} product={product} />
-      </div>
-    );
-  }
-  if (product.platform === "macos") {
-    return (
-      <div className="min-w-0 lg:flex lg:justify-end">
-        <AtlasMacPreview />
       </div>
     );
   }
@@ -141,9 +145,16 @@ function ProductVisual({ product }: { product: Product }) {
       </div>
     );
   }
+  if (product.platform === "macos") {
+    return (
+      <div className="min-w-0 lg:flex lg:justify-end">
+        <MacWorkspacePreview product={product} />
+      </div>
+    );
+  }
   return (
     <div className="min-w-0 lg:flex lg:justify-end">
-      <MiloSMSPreview />
+      <BrowserPreview product={product} />
     </div>
   );
 }
@@ -213,7 +224,19 @@ function ProductSection({
           )}
         </div>
 
-        <ProductVisual product={product} />
+        {product.link && product.screenshots.length <= 1 ? (
+          <a
+            href={product.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Visit ${product.name}`}
+            className="block"
+          >
+            <ProductVisual product={product} />
+          </a>
+        ) : (
+          <ProductVisual product={product} />
+        )}
       </div>
     </motion.article>
   );

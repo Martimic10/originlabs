@@ -9,9 +9,8 @@ const footerColumns = [
   {
     title: "Products",
     links: [
-      { href: "/products?app=milo", label: "Milo" },
       { href: "/products?app=teeup", label: "TeeUp" },
-      { href: "/products?app=atlas", label: "Atlas" },
+      { href: "/products?app=helixops", label: "HelixOps" },
     ],
   },
   {
@@ -88,11 +87,11 @@ export default function CTA() {
 
         <div className="border-t border-white/15" />
 
-        <footer className="py-10 sm:py-14 md:py-16">
+        <footer className="py-10 drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] sm:py-14 md:py-16">
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {footerColumns.map((column) => (
               <div key={column.title}>
-                <h3 className="text-xs font-semibold tracking-widest text-black/60 uppercase">
+                <h3 className="text-xs font-semibold tracking-widest text-white/60 uppercase">
                   {column.title}
                 </h3>
                 <ul className="mt-4 space-y-2.5">
@@ -110,7 +109,7 @@ export default function CTA() {
                             ? "noopener noreferrer"
                             : undefined
                         }
-                        className="text-sm font-medium text-black transition-colors hover:text-black/70"
+                        className="text-sm font-medium text-white transition-colors hover:text-white/70"
                       >
                         {link.label}
                       </a>
@@ -121,14 +120,14 @@ export default function CTA() {
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-black/15 pt-6 text-center text-sm sm:mt-12 sm:flex-row sm:pt-8 sm:text-left">
-            <p className="max-w-full text-black">
+          <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/15 pt-6 text-center text-sm sm:mt-12 sm:flex-row sm:pt-8 sm:text-left">
+            <p className="max-w-full text-white/90">
               © {new Date().getFullYear()} Origin Labs. All rights reserved.
             </p>
 
             <a
               href="mailto:martimicm1010@gmail.com"
-              className="inline-flex max-w-full items-center justify-center gap-2 break-all text-black transition-colors hover:text-black/70 sm:break-normal"
+              className="inline-flex max-w-full items-center justify-center gap-2 break-all text-white/90 transition-colors hover:text-white sm:break-normal"
             >
               <svg
                 className="h-4 w-4 shrink-0"
