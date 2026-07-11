@@ -74,6 +74,29 @@ export const products: Product[] = [
     ],
     screenshots: [],
   },
+  {
+    link: "https://multi-ball-co.vercel.app/",
+    platform: "web" as const,
+    slug: "multiball",
+    name: "MultiBall Co.",
+    tag: "Website",
+    tagline: "Full tilt. Zero shortcuts.",
+    description:
+      "MultiBall Co. designs, fabricates, and wires custom pinball machines and arcade cabinets for collectors, arcades, and basements that mean business.",
+    status: "Live",
+    statusColor: "text-pink-400 bg-pink-400/10 border-pink-400/20",
+    image: "/MultiBall-demo.png",
+    gradient:
+      "linear-gradient(160deg, #f9a8d4 0%, #ec4899 42%, #1e1b4b 100%)",
+    glow: "group-hover:shadow-pink-500/20",
+    highlights: [
+      "Hand-built in-house since 1987",
+      "Custom pinball machines & arcade cabinets",
+      "Designed for collectors and arcades",
+      "Full-tilt craftsmanship, zero shortcuts",
+    ],
+    screenshots: [],
+  },
 ];
 
 export function getProductIndex(slug: string | null | undefined): number {

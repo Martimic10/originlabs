@@ -8,7 +8,7 @@ import ScrollReveal from "./ScrollReveal";
 import { products } from "@/lib/products";
 import type { Product } from "@/lib/products";
 
-const CAROUSEL_ORDER = ["helixops", "teeup"];
+const CAROUSEL_ORDER = ["helixops", "teeup", "multiball"];
 
 const carouselProducts = CAROUSEL_ORDER.map((slug) =>
   products.find((product) => product.slug === slug),
@@ -195,12 +195,20 @@ export default function FeaturedProducts() {
         <div className="relative mx-auto mt-12 max-w-4xl sm:mt-16">
           {total > 1 && (
             <>
-              <ArrowButton direction="prev" onClick={prev} className="left-0 -translate-x-1/2" />
-              <ArrowButton direction="next" onClick={next} className="right-0 translate-x-1/2" />
+              <ArrowButton
+                direction="prev"
+                onClick={prev}
+                className="left-1 sm:left-0 sm:-translate-x-1/2"
+              />
+              <ArrowButton
+                direction="next"
+                onClick={next}
+                className="right-1 sm:right-0 sm:translate-x-1/2"
+              />
             </>
           )}
 
-          <div className="flex items-center justify-center overflow-hidden">
+          <div className="overflow-hidden px-10 sm:px-0">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={product.slug}
@@ -209,7 +217,7 @@ export default function FeaturedProducts() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: direction >= 0 ? -60 : 60 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="w-full"
+                className="flex w-full items-center justify-center"
               >
                 {product.link ? (
                   <a
@@ -217,12 +225,12 @@ export default function FeaturedProducts() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit ${product.name}`}
-                    className="flex items-center justify-center"
+                    className="flex w-full items-center justify-center"
                   >
                     <ProductVisual product={product} />
                   </a>
                 ) : (
-                  <div className="flex items-center justify-center">
+                  <div className="flex w-full items-center justify-center">
                     <ProductVisual product={product} />
                   </div>
                 )}
