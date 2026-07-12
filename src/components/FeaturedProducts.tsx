@@ -8,7 +8,7 @@ import ScrollReveal from "./ScrollReveal";
 import { products } from "@/lib/products";
 import type { Product } from "@/lib/products";
 
-const CAROUSEL_ORDER = ["helixops", "teeup", "multiball"];
+const CAROUSEL_ORDER = ["helixops", "multiball"];
 
 const carouselProducts = CAROUSEL_ORDER.map((slug) =>
   products.find((product) => product.slug === slug),
@@ -28,7 +28,7 @@ function ArrowButton({
       type="button"
       onClick={onClick}
       aria-label={direction === "prev" ? "Previous product" : "Next product"}
-      className={`absolute top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/8 text-white shadow-xl backdrop-blur-md transition-colors hover:bg-white/[0.14] sm:h-13 sm:w-13 ${className}`}
+      className={`absolute top-1/2 z-20 h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/8 text-white shadow-xl backdrop-blur-md transition-colors hover:bg-white/[0.14] sm:h-13 sm:w-13 ${className}`}
     >
       <svg
         className="h-5 w-5"
@@ -120,7 +120,7 @@ function BrowserWindowMockup({ product }: { product: Product }) {
 
 function WebsiteScreenshotMockup({ product }: { product: Product }) {
   return (
-    <div className="w-full overflow-hidden rounded-3xl border-8 border-white bg-white shadow-2xl shadow-black/50 sm:rounded-[1.75rem] sm:border-10">
+    <div className="w-full overflow-hidden rounded-3xl bg-zinc-900 shadow-2xl shadow-black/50 sm:rounded-[1.75rem]">
       <div className="relative aspect-2938/1530 w-full bg-zinc-900">
         <Image
           src={product.image!}
@@ -198,17 +198,17 @@ export default function FeaturedProducts() {
               <ArrowButton
                 direction="prev"
                 onClick={prev}
-                className="left-1 sm:left-0 sm:-translate-x-1/2"
+                className="hidden sm:left-0 sm:-translate-x-1/2 sm:flex"
               />
               <ArrowButton
                 direction="next"
                 onClick={next}
-                className="right-1 sm:right-0 sm:translate-x-1/2"
+                className="hidden sm:right-0 sm:translate-x-1/2 sm:flex"
               />
             </>
           )}
 
-          <div className="overflow-hidden px-10 sm:px-0">
+          <div className="overflow-hidden">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={product.slug}
@@ -239,21 +239,65 @@ export default function FeaturedProducts() {
           </div>
 
           {total > 1 && (
-            <div className="mt-6 flex items-center justify-center gap-2">
-              {carouselProducts.map((item, itemIndex) => (
+            <>
+              {/* Mobile: arrows + dots share one control row below the image */}
+              <div className="mt-6 flex items-center justify-center gap-5 sm:hidden">
                 <button
-                  key={item.slug}
                   type="button"
-                  onClick={() => goTo(itemIndex)}
-                  aria-label={`Show ${item.name}`}
-                  className={`h-2 rounded-full transition-all ${
-                    itemIndex === index
-                      ? "w-8 bg-white"
-                      : "w-2 bg-white/25 hover:bg-white/40"
-                  }`}
-                />
-              ))}
-            </div>
+                  onClick={prev}
+                  aria-label="Previous product"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/8 text-white shadow-lg backdrop-blur-md transition-colors hover:bg-white/[0.14]"
+                >
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  </svg>
+                </button>
+
+                <div className="flex items-center gap-2">
+                  {carouselProducts.map((item, itemIndex) => (
+                    <button
+                      key={item.slug}
+                      type="button"
+                      onClick={() => goTo(itemIndex)}
+                      aria-label={`Show ${item.name}`}
+                      className={`h-2 rounded-full transition-all ${
+                        itemIndex === index
+                          ? "w-8 bg-white"
+                          : "w-2 bg-white/25 hover:bg-white/40"
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={next}
+                  aria-label="Next product"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/8 text-white shadow-lg backdrop-blur-md transition-colors hover:bg-white/[0.14]"
+                >
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Desktop: arrows float beside the card, dots sit below on their own */}
+              <div className="mt-6 hidden items-center justify-center gap-2 sm:flex">
+                {carouselProducts.map((item, itemIndex) => (
+                  <button
+                    key={item.slug}
+                    type="button"
+                    onClick={() => goTo(itemIndex)}
+                    aria-label={`Show ${item.name}`}
+                    className={`h-2 rounded-full transition-all ${
+                      itemIndex === index
+                        ? "w-8 bg-white"
+                        : "w-2 bg-white/25 hover:bg-white/40"
+                    }`}
+                  />
+                ))}
+              </div>
+            </>
           )}
         </div>
       </div>

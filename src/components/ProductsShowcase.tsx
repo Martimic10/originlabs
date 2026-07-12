@@ -106,7 +106,7 @@ function BrowserPreview({ product }: { product: Product }) {
 
 function WebsiteScreenshotMockup({ product }: { product: Product }) {
   return (
-    <div className="w-full overflow-hidden rounded-[1.75rem] border-10 border-white bg-white shadow-2xl shadow-black/50 sm:rounded-4xl sm:border-12">
+    <div className="-mx-4 overflow-hidden rounded-none bg-zinc-900 shadow-2xl shadow-black/50 sm:mx-0 sm:rounded-4xl">
       <div className="relative aspect-2938/1530 w-full bg-zinc-900">
         <Image
           src={product.image!}
