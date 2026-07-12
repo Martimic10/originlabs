@@ -45,7 +45,7 @@ export default function Hero() {
             className="text-[2.35rem] font-bold leading-[1.08] tracking-tight text-white drop-shadow-[0_4px_32px_rgba(0,0,0,0.55)] min-[390px]:text-5xl sm:text-6xl lg:text-7xl"
           >
             Beautiful websites. Powerful apps.{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-300 to-orange-500 bg-clip-text text-transparent">
               Built to grow your business.
             </span>
           </motion.h1>

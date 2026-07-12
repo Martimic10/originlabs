@@ -134,6 +134,8 @@ export default function LandscapeBackground({
           <div className="absolute inset-0 bg-linear-to-b from-black/55 via-black/20 to-black/85" />
           {/* Radial vignette — keeps the centre clear, darkens the edges */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_38%,transparent_0%,rgba(0,0,0,0.35)_100%)]" />
+          {/* Solid fade at the very top — blends seamlessly into the section above instead of showing a gray seam */}
+          <div className="absolute inset-x-0 top-0 h-32 bg-linear-to-b from-black to-transparent sm:h-48" />
           {/* Solid fade at the very bottom — this is the last section on the page */}
           <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-b from-transparent to-black sm:h-56" />
         </>

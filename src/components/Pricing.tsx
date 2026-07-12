@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
 import ScrollReveal from "./ScrollReveal";
-import { staggerContainer, scaleIn } from "@/lib/animations";
 import { CAL_COM_URL } from "@/lib/site";
 
 const tiers = [
@@ -90,6 +90,10 @@ function CheckIcon() {
 }
 
 export default function Pricing() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const tier = tiers[activeIndex];
+  const featured = Boolean(tier.featured);
+
   return (
     <section id="pricing" className="relative py-20 sm:py-28 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -105,62 +109,48 @@ export default function Pricing() {
           </p>
         </ScrollReveal>
 
-        <motion.div
-          initial={false}
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={staggerContainer}
-          className="mt-12 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-2 lg:grid-cols-4 lg:items-center"
-        >
-          {tiers.map((tier) => {
-            const featured = "featured" in tier && tier.featured;
-
-            return (
-              <motion.article
-                key={tier.name}
-                variants={scaleIn}
-                whileHover={
-                  featured ? { rotate: -1, y: -6 } : { y: -6 }
-                }
-                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className={`relative flex flex-col rounded-2xl border p-6 transition-shadow duration-300 sm:rounded-3xl sm:p-8 md:p-9 ${
-                  featured
-                    ? "border-white/15 bg-[#0A0A0A] shadow-2xl shadow-black/50 md:-rotate-1 lg:scale-[1.03] lg:py-12"
-                    : "border-white/[0.08] bg-white/[0.03] hover:border-white/[0.14] hover:shadow-xl hover:shadow-black/25"
+        <ScrollReveal delay={0.05}>
+          <div className="mt-10 flex flex-wrap justify-center gap-2 rounded-3xl border border-white/8 bg-white/3 p-2 sm:mt-12 sm:inline-flex">
+            {tiers.map((t, i) => (
+              <button
+                key={t.name}
+                type="button"
+                onClick={() => setActiveIndex(i)}
+                className={`rounded-2xl px-4 py-2.5 text-sm font-medium transition-all sm:px-5 ${
+                  i === activeIndex
+                    ? "bg-white text-black shadow-lg shadow-black/20"
+                    : "text-zinc-400 hover:text-white"
                 }`}
               >
-                {featured && (
-                  <span className="mb-4 inline-flex w-fit rounded-2xl border border-emerald-400/25 bg-emerald-400/10 px-3 py-1 text-xs font-medium tracking-wide text-emerald-400 uppercase">
-                    Most popular
-                  </span>
-                )}
+                {t.name}
+              </button>
+            ))}
+          </div>
+        </ScrollReveal>
 
-                <div>
-                  <h3 className="text-xl font-semibold text-white">{tier.name}</h3>
-                  <div className="mt-5 flex items-end gap-2">
-                    <span
-                      className={`text-3xl font-bold tracking-tight min-[390px]:text-4xl sm:text-5xl ${
-                        featured
-                          ? "bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent"
-                          : "text-white"
-                      }`}
-                    >
-                      {tier.price}
+        <div className="relative mt-8 sm:mt-10">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={tier.name}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="grid gap-8 rounded-3xl border border-white/8 bg-white/3 p-6 sm:p-8 md:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12"
+            >
+              <div className="flex flex-col">
+                <div className="flex flex-wrap items-center gap-3">
+                  <h3 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                    {tier.name}
+                  </h3>
+                  {featured && (
+                    <span className="rounded-2xl border border-orange-400/25 bg-orange-400/10 px-3 py-1 text-xs font-medium tracking-wide text-orange-400 uppercase">
+                      Most popular
                     </span>
-                    {tier.price !== "Custom" && (
-                      <span className="mb-1.5 text-sm text-zinc-500">+</span>
-                    )}
-                  </div>
-                  <p className="mt-1 text-xs tracking-wide text-zinc-500 uppercase">
-                    {tier.priceNote}
-                  </p>
+                  )}
                 </div>
 
-                <p
-                  className={`mt-5 text-sm leading-relaxed ${
-                    featured ? "text-zinc-400" : "text-zinc-500"
-                  }`}
-                >
+                <p className="mt-3 max-w-md text-sm leading-relaxed text-zinc-400 sm:text-base">
                   {tier.description}
                 </p>
 
@@ -171,31 +161,58 @@ export default function Pricing() {
                   {tier.features.map((feature) => (
                     <li
                       key={feature}
-                      className="flex items-start gap-3 text-sm leading-relaxed text-zinc-400"
+                      className="flex items-start gap-3 text-sm leading-relaxed text-zinc-300"
                     >
                       <CheckIcon />
                       {feature}
                     </li>
                   ))}
                 </ul>
+              </div>
 
-                <a
-                  href={tier.href}
-                  className={`mt-10 inline-flex w-full items-center justify-center rounded-2xl px-6 py-3.5 text-sm font-semibold transition-all sm:w-auto ${
-                    featured
-                      ? "bg-white text-black hover:bg-zinc-200 hover:shadow-lg hover:shadow-white/10"
-                      : "border border-white/15 text-white hover:border-white/30 hover:bg-white/5"
-                  }`}
-                >
-                  {tier.cta}
-                </a>
-              </motion.article>
-            );
-          })}
-        </motion.div>
+              <div className="flex flex-col">
+                <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0A0A0A] p-6 sm:rounded-3xl sm:p-8">
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_15%,rgba(251,146,60,0.22),transparent_60%)]" />
+                  <p className="relative text-xs font-semibold tracking-[0.2em] text-white/30 uppercase">
+                    Origin Labs
+                  </p>
+                  <p className="relative mt-10 text-xs font-medium tracking-widest text-zinc-400 uppercase">
+                    {tier.name}
+                  </p>
+                  <div className="relative mt-2 flex items-end gap-2">
+                    <span className="bg-linear-to-r from-orange-300 to-orange-500 bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl">
+                      {tier.price}
+                    </span>
+                    <span className="mb-1.5 text-sm text-zinc-500">+</span>
+                  </div>
+                  <p className="relative mt-1 text-xs tracking-wide text-zinc-500 uppercase">
+                    {tier.priceNote}
+                  </p>
+                </div>
+
+                <div className="mt-6 flex flex-1 flex-col justify-end gap-3">
+                  <a
+                    href={tier.href}
+                    className="inline-flex w-full items-center justify-center rounded-2xl bg-white px-6 py-3.5 text-sm font-semibold text-black transition-all hover:bg-zinc-200 hover:shadow-lg hover:shadow-white/10"
+                  >
+                    {tier.cta}
+                  </a>
+                  <a
+                    href={CAL_COM_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-white/15 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:border-white/30 hover:bg-white/5"
+                  >
+                    Book a Discovery Call
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
         <ScrollReveal delay={0.2}>
-          <div className="mt-14 flex flex-col items-center gap-5 border-t border-white/[0.08] pt-10 text-center sm:flex-row sm:justify-between sm:text-left">
+          <div className="mt-14 flex flex-col items-center gap-5 border-t border-white/8 pt-10 text-center sm:flex-row sm:justify-between sm:text-left">
             <p className="text-base text-zinc-400 sm:text-lg">
               Need something custom? Let&apos;s build it together.
             </p>
