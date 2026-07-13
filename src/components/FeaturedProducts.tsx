@@ -120,14 +120,20 @@ function BrowserWindowMockup({ product }: { product: Product }) {
 
 function WebsiteScreenshotMockup({ product }: { product: Product }) {
   return (
-    <div className="w-full overflow-hidden rounded-3xl bg-zinc-900 shadow-2xl shadow-black/50 sm:rounded-[1.75rem]">
-      <div className="relative aspect-2938/1530 w-full bg-zinc-900">
+    <div className="relative w-full overflow-hidden rounded-3xl bg-zinc-900 p-2 shadow-2xl shadow-black/50 sm:rounded-[1.75rem] sm:p-3">
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-40"
+        style={{ backgroundImage: 'url("/Card-background.jpeg")' }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-zinc-950/70 via-zinc-900/20 to-zinc-950/80" />
+      <div className="relative z-10 mx-auto w-full max-w-190">
         <Image
           src={product.image!}
           alt={`${product.name} preview`}
-          fill
+          width={2938}
+          height={1530}
           sizes="(min-width: 1024px) 70vw, 90vw"
-          className="object-cover object-top"
+          className="h-auto w-full rounded-[1.25rem] object-contain object-center"
         />
       </div>
     </div>

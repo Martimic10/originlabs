@@ -62,7 +62,7 @@ export const products: Product[] = [
       "HelixOps connects every machine, sensor, and operator into a single intelligent system — predicting downtime, optimizing production, and automating operations across your entire manufacturing footprint.",
     status: "Live",
     statusColor: "text-sky-400 bg-sky-400/10 border-sky-400/20",
-    image: "/HelixOps-demo.png",
+    image: "/HelixOps-demo2.png",
     gradient:
       "linear-gradient(160deg, #22d3ee 0%, #0891b2 42%, #082f36 100%)",
     glow: "group-hover:shadow-cyan-500/20",
@@ -85,7 +85,7 @@ export const products: Product[] = [
       "MultiBall Co. designs, fabricates, and wires custom pinball machines and arcade cabinets for collectors, arcades, and basements that mean business.",
     status: "Live",
     statusColor: "text-pink-400 bg-pink-400/10 border-pink-400/20",
-    image: "/MultiBall-demo.png",
+    image: "/MultiBall-demo2.png",
     gradient:
       "linear-gradient(160deg, #f9a8d4 0%, #ec4899 42%, #1e1b4b 100%)",
     glow: "group-hover:shadow-pink-500/20",
