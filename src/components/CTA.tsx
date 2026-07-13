@@ -11,6 +11,7 @@ const footerColumns = [
     links: [
       { href: "/products?app=teeup", label: "TeeUp" },
       { href: "/products?app=helixops", label: "HelixOps" },
+      { href: "/products?app=multiball.co", label: "MultiBall.co" },
     ],
   },
   {
