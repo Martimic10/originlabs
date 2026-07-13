@@ -34,9 +34,9 @@ const footerColumns = [
   {
     title: "Social",
     links: [
-      { href: "https://github.com", label: "GitHub", external: true as const },
-      { href: "https://x.com", label: "X", external: true as const },
-      { href: "https://linkedin.com", label: "LinkedIn", external: true as const },
+      { href: "https://github.com/Martimic10", label: "GitHub", external: true as const },
+      { href: "https://x.com/originlabshq", label: "X", external: true as const },
+      { href: "https://www.linkedin.com/company/originlabs-v1/", label: "LinkedIn", external: true as const },
     ],
   },
 ];
