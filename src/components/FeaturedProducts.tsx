@@ -8,7 +8,7 @@ import ScrollReveal from "./ScrollReveal";
 import { products } from "@/lib/products";
 import type { Product } from "@/lib/products";
 
-const CAROUSEL_ORDER = ["helixops", "multiball", "shipdeck"];
+const CAROUSEL_ORDER = ["helixops", "multiball", "shipdeck", "nexturn"];
 
 const carouselProducts = CAROUSEL_ORDER.map((slug) =>
   products.find((product) => product.slug === slug),
@@ -120,21 +120,14 @@ function BrowserWindowMockup({ product }: { product: Product }) {
 
 function WebsiteScreenshotMockup({ product }: { product: Product }) {
   return (
-    <div className="relative aspect-3/2 w-full overflow-hidden rounded-3xl bg-zinc-900 p-2 shadow-2xl shadow-black/50 sm:rounded-[1.75rem] sm:p-3">
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-40"
-        style={{ backgroundImage: 'url("/Card-background.jpeg")' }}
+    <div className="relative aspect-3/2 w-full overflow-hidden rounded-4xl bg-zinc-900 shadow-2xl shadow-black/50 sm:rounded-[2.5rem]">
+      <Image
+        src={product.image!}
+        alt={`${product.name} preview`}
+        fill
+        sizes="(min-width: 1024px) 70vw, 90vw"
+        className="object-cover object-top"
       />
-      <div className="absolute inset-0 bg-linear-to-br from-zinc-950/70 via-zinc-900/20 to-zinc-950/80" />
-      <div className="relative z-10 h-full w-full">
-        <Image
-          src={product.image!}
-          alt={`${product.name} preview`}
-          fill
-          sizes="(min-width: 1024px) 70vw, 90vw"
-          className="rounded-[1.25rem] object-contain object-center"
-        />
-      </div>
     </div>
   );
 }

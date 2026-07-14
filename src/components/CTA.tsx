@@ -13,6 +13,7 @@ const footerColumns = [
       { href: "/products?app=helixops", label: "HelixOps" },
       { href: "/products?app=multiball", label: "MultiBall Co." },
       { href: "/products?app=shipdeck", label: "ShipDeck" },
+      { href: "/products?app=nexturn", label: "NexTurn" },
     ],
   },
   {

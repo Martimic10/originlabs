@@ -1,25 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { fadeInUp, staggerContainer, slideInLeft } from "@/lib/animations";
+import DotGrid from "./DotGrid";
 
 const badges = ["Websites", "AI Applications", "iPhone Apps", "macOS Apps"];
 
 export default function Hero() {
   return (
     <section className="relative min-h-svh overflow-hidden bg-black pt-40 sm:pt-52 md:pt-56 lg:pt-64">
-      <Image
-        src="/OriginLabs-hero-background.jpeg"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        quality={90}
-        className="z-0 object-cover object-[54%_30%] saturate-[0.85] contrast-[1.05]"
-      />
-      {/* Base tint — brings the whole photo down so text always has a floor to read against */}
-      <div className="pointer-events-none absolute inset-0 z-1 bg-black/45" />
+      <div className="absolute inset-0 z-0">
+        <DotGrid
+          dotSize={3}
+          gap={26}
+          baseColor="#27272a"
+          activeColor="#f97316"
+          proximity={140}
+          shockRadius={220}
+          shockStrength={3}
+          resistance={750}
+          returnDuration={1.2}
+        />
+      </div>
       {/* Radial vignette — darkest behind the headline, lighter toward the corners */}
       <div className="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(ellipse_80%_60%_at_50%_42%,rgba(0,0,0,0.72)_0%,rgba(0,0,0,0.4)_55%,rgba(0,0,0,0.2)_100%)]" />
       {/* Bottom fade — smooth transition into the next section */}

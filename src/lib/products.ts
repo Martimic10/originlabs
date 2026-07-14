@@ -120,6 +120,29 @@ export const products: Product[] = [
     ],
     screenshots: [],
   },
+  {
+    link: "https://nexturn-ai.framer.ai/",
+    platform: "web" as const,
+    slug: "nexturn",
+    name: "NexTurn",
+    tag: "DevOps",
+    tagline: "Build workflows with confidence.",
+    description:
+      "NexTurn automates pre-deployment validation and workflow orchestration — monitoring code, configs, and runtime signals to catch issues before they reach production and blocking risky releases automatically.",
+    status: "Coming Soon",
+    statusColor: "text-amber-400 bg-amber-400/10 border-amber-400/20",
+    image: "/NexTurn-demo.png",
+    gradient:
+      "linear-gradient(160deg, #fcd34d 0%, #f59e0b 42%, #78350f 100%)",
+    glow: "group-hover:shadow-amber-500/20",
+    highlights: [
+      "Automated pre-deploy validation for cost, logic & config",
+      "Real-time execution feedback across pipelines",
+      "Policy-based workflow rules & guardrails",
+      "Built for platform & DevOps teams at scale",
+    ],
+    screenshots: [],
+  },
 ];
 
 export function getProductIndex(slug: string | null | undefined): number {
