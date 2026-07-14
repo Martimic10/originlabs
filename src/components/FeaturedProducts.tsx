@@ -8,7 +8,7 @@ import ScrollReveal from "./ScrollReveal";
 import { products } from "@/lib/products";
 import type { Product } from "@/lib/products";
 
-const CAROUSEL_ORDER = ["helixops", "multiball"];
+const CAROUSEL_ORDER = ["helixops", "multiball", "shipdeck"];
 
 const carouselProducts = CAROUSEL_ORDER.map((slug) =>
   products.find((product) => product.slug === slug),
@@ -120,20 +120,19 @@ function BrowserWindowMockup({ product }: { product: Product }) {
 
 function WebsiteScreenshotMockup({ product }: { product: Product }) {
   return (
-    <div className="relative w-full overflow-hidden rounded-3xl bg-zinc-900 p-2 shadow-2xl shadow-black/50 sm:rounded-[1.75rem] sm:p-3">
+    <div className="relative aspect-3/2 w-full overflow-hidden rounded-3xl bg-zinc-900 p-2 shadow-2xl shadow-black/50 sm:rounded-[1.75rem] sm:p-3">
       <div
         className="absolute inset-0 bg-cover bg-center opacity-40"
         style={{ backgroundImage: 'url("/Card-background.jpeg")' }}
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-zinc-950/70 via-zinc-900/20 to-zinc-950/80" />
-      <div className="relative z-10 mx-auto w-full max-w-190">
+      <div className="absolute inset-0 bg-linear-to-br from-zinc-950/70 via-zinc-900/20 to-zinc-950/80" />
+      <div className="relative z-10 h-full w-full">
         <Image
           src={product.image!}
           alt={`${product.name} preview`}
-          width={2938}
-          height={1530}
+          fill
           sizes="(min-width: 1024px) 70vw, 90vw"
-          className="h-auto w-full rounded-[1.25rem] object-contain object-center"
+          className="rounded-[1.25rem] object-contain object-center"
         />
       </div>
     </div>
@@ -204,12 +203,12 @@ export default function FeaturedProducts() {
               <ArrowButton
                 direction="prev"
                 onClick={prev}
-                className="hidden sm:left-0 sm:-translate-x-1/2 sm:flex"
+                className="hidden lg:left-0 lg:-translate-x-1/2 lg:flex"
               />
               <ArrowButton
                 direction="next"
                 onClick={next}
-                className="hidden sm:right-0 sm:translate-x-1/2 sm:flex"
+                className="hidden lg:right-0 lg:translate-x-1/2 lg:flex"
               />
             </>
           )}
@@ -246,8 +245,8 @@ export default function FeaturedProducts() {
 
           {total > 1 && (
             <>
-              {/* Mobile: arrows + dots share one control row below the image */}
-              <div className="mt-6 flex items-center justify-center gap-5 sm:hidden">
+              {/* Mobile/tablet: arrows + dots share one control row below the image */}
+              <div className="mt-6 flex items-center justify-center gap-5 lg:hidden">
                 <button
                   type="button"
                   onClick={prev}
@@ -288,7 +287,7 @@ export default function FeaturedProducts() {
               </div>
 
               {/* Desktop: arrows float beside the card, dots sit below on their own */}
-              <div className="mt-6 hidden items-center justify-center gap-2 sm:flex">
+              <div className="mt-6 hidden items-center justify-center gap-2 lg:flex">
                 {carouselProducts.map((item, itemIndex) => (
                   <button
                     key={item.slug}

@@ -106,20 +106,19 @@ function BrowserPreview({ product }: { product: Product }) {
 
 function WebsiteScreenshotMockup({ product }: { product: Product }) {
   return (
-    <div className="relative -mx-4 overflow-hidden rounded-none bg-zinc-900 shadow-2xl shadow-black/50 sm:mx-0 sm:rounded-4xl">
+    <div className="relative -mx-4 aspect-3/2 overflow-hidden rounded-none bg-zinc-900 shadow-2xl shadow-black/50 sm:mx-0 sm:rounded-4xl">
       <div
         className="absolute inset-0 bg-cover bg-center opacity-40"
         style={{ backgroundImage: 'url("/Card-background.jpeg")' }}
       />
       <div className="absolute inset-0 bg-linear-to-br from-zinc-950/70 via-zinc-900/20 to-zinc-950/80" />
-      <div className="relative z-10 mx-auto w-full max-w-190 bg-zinc-900/60 p-2 sm:p-3">
+      <div className="relative z-10 h-full w-full bg-zinc-900/60 p-2 sm:p-3">
         <Image
           src={product.image!}
           alt={`${product.name} preview`}
-          width={2938}
-          height={1530}
+          fill
           sizes="(min-width: 1024px) 60vw, 100vw"
-          className="h-auto w-full rounded-[1.25rem] object-contain object-center"
+          className="rounded-[1.25rem] object-contain object-center"
         />
       </div>
     </div>

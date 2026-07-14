@@ -97,6 +97,29 @@ export const products: Product[] = [
     ],
     screenshots: [],
   },
+  {
+    link: "https://shipdeck-demo.vercel.app/",
+    platform: "web" as const,
+    slug: "shipdeck",
+    name: "ShipDeck",
+    tag: "SaaS",
+    tagline: "Ship your product launch without the chaos.",
+    description:
+      "Generate your Product Hunt page, launch posts, README, press kit, and marketing assets in minutes.",
+    status: "Live",
+    statusColor: "text-indigo-400 bg-indigo-400/10 border-indigo-400/20",
+    image: "/shipdeck-demo.png",
+    gradient:
+      "linear-gradient(160deg, #818cf8 0%, #4338ca 42%, #0f172a 100%)",
+    glow: "group-hover:shadow-indigo-500/20",
+    highlights: [
+      "Generate Product Hunt pages instantly",
+      "Launch posts, README & press kit included",
+      "Lifetime access — no subscription",
+      "Built for indie makers",
+    ],
+    screenshots: [],
+  },
 ];
 
 export function getProductIndex(slug: string | null | undefined): number {
